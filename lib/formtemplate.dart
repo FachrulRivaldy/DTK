@@ -21,19 +21,19 @@ class Formnya extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      width: MediaQuery.of(context).size.width - 50,
+      padding: EdgeInsets.symmetric(horizontal: 25),
+      width: MediaQuery.of(context).size.width,
       height: 50,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 1.5),
-          borderRadius: BorderRadius.circular(10)),
+          color: Colors.white, borderRadius: BorderRadius.circular(50)),
       child: TextFormField(
         style: TextStyle(
             color: textcolor, fontSize: fontsize, fontWeight: fontweight),
         controller: controller,
         obscureText: isobscure,
         maxLines: 1,
-        decoration: InputDecoration(hintText: hinttext),
+        decoration:
+            InputDecoration(hintText: hinttext, border: InputBorder.none),
       ),
     );
   }

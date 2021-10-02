@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:dtk_database_tekkom/formtemplate.dart';
+import 'package:dtk_database_tekkom/formtemplate.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -10,43 +10,117 @@ void main() {
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TextEditingController nrpcontroller = TextEditingController(text: '');
+    TextEditingController passwordcontroller = TextEditingController(text: '');
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 40),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                'assets/images/logotekkom.png',
-                scale: 3,
+        padding: const EdgeInsets.only(top: 20),
+        child: Column(
+          children: <Widget>[
+            Image.asset(
+              'assets/images/logotekkom.png',
+              scale: 3,
+            ),
+            Text(
+              "Selamat Datang\nAnak TK",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 46,
+                fontWeight: FontWeight.w700,
               ),
-              Text(
-                "Selamat Datang\nAnak TK",
-                textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Expanded(
+              child: StackContainer(
+                  nrpcontroller: nrpcontroller,
+                  passwordcontroller: passwordcontroller),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class StackContainer extends StatelessWidget {
+  final TextEditingController nrpcontroller;
+  final TextEditingController passwordcontroller;
+
+  StackContainer(
+      {required this.nrpcontroller, required this.passwordcontroller});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(55), topRight: Radius.circular(55))),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Center(
+            child: Text(
+              "LOGIN",
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Formnya(
+            controller: nrpcontroller,
+            hinttext: "NRP",
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Formnya(
+            controller: passwordcontroller,
+            hinttext: "Password",
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Forgot Password",
                 style: TextStyle(
-                  fontSize: 46,
-                  fontWeight: FontWeight.w700,
-                ),
+                    decoration: TextDecoration.underline, color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
+          Row(
+            children: <Widget>[
+              Text(
+                "Doesn't Have Account?",
+                style: TextStyle(color: Colors.white),
               ),
               SizedBox(
-                height: 35,
+                width: 5,
               ),
-              Expanded(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(75),
-                          topRight: Radius.circular(75))),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                  ),
-                ),
-              )
+              InkWell(
+                  child: Text(
+                "Sign In Here",
+                style: TextStyle(
+                    decoration: TextDecoration.underline, color: Colors.white),
+              ))
             ],
-          ),
-        ),
+          )
+        ],
       ),
     );
   }
