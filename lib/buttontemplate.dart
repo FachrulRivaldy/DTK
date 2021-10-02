@@ -13,22 +13,25 @@ class LongButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 55,
-      width: 105,
-      color: Colors.lightBlue,
-      child: ElevatedButton(
-        child: Row(
-          children: [
-            if (iconArrow == "Left") Icon(Icons.arrow_left),
-            Text(hinttext),
-            if (iconArrow == "Right") Icon(Icons.arrow_right),
-          ],
+    return Padding(
+      padding: const EdgeInsets.only(right: 30, bottom: 30),
+      child: Container(
+        height: 55,
+        width: 105,
+        color: Colors.lightBlue,
+        child: ElevatedButton(
+          child: Row(
+            children: [
+              if (iconArrow == "Left") Icon(Icons.arrow_left),
+              Text(hinttext),
+              if (iconArrow == "Right") Icon(Icons.arrow_right),
+            ],
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => dest));
+          },
         ),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => dest));
-        },
       ),
     );
   }

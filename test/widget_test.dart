@@ -7,8 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:dtk_database_tekkom/main.dart';
+import 'package:dtk_database_tekkom/loginpage.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

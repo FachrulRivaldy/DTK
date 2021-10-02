@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: LongButton(
         dest: SignUp(),
-        iconArrow: "Left",
+        iconArrow: "Right",
         hinttext: "Login",
       ),
       body: Padding(
@@ -114,11 +114,16 @@ class StackContainer extends StatelessWidget {
                 width: 5,
               ),
               InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
                   child: Text(
-                "Sign In Here",
-                style: TextStyle(
-                    decoration: TextDecoration.underline, color: Colors.white),
-              ))
+                    "Sign In Here",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.white),
+                  ))
             ],
           )
         ],
