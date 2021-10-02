@@ -3,12 +3,6 @@ import 'package:dtk_database_tekkom/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/formtemplate.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: LoginPage(),
-  ));
-}
-
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
