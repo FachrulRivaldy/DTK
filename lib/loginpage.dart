@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/buttontemplate.dart';
+import 'package:dtk_database_tekkom/mainmenu.dart';
 import 'package:dtk_database_tekkom/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/formtemplate.dart';
@@ -10,11 +11,6 @@ class LoginPage extends StatelessWidget {
     TextEditingController passwordcontroller = TextEditingController(text: '');
 
     return Scaffold(
-      floatingActionButton: LongButton(
-        dest: SignUp(),
-        iconArrow: "Right",
-        hinttext: "Login",
-      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Column(
@@ -125,6 +121,11 @@ class StackContainer extends StatelessWidget {
                         color: Colors.white),
                   ))
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 70, left: 170),
+            child: LongButton(
+                hinttext: "Login", iconArrow: "Right", dest: TopMainMenu()),
           )
         ],
       ),

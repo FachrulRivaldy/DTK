@@ -36,3 +36,36 @@ class LongButton extends StatelessWidget {
     );
   }
 }
+
+class YellowButton extends StatelessWidget {
+  final String hinttext;
+  final Color textcolor;
+  final Widget dest;
+
+  YellowButton(
+      {required this.hinttext,
+      this.textcolor = Colors.yellow,
+      required this.dest});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 100,
+        width: 100,
+        color: textcolor,
+        child: ElevatedButton(
+          child: Text(
+            hinttext,
+            textAlign: TextAlign.center,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => dest));
+          },
+        ),
+      ),
+    );
+  }
+}

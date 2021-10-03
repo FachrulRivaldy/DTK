@@ -15,11 +15,6 @@ class SignUp extends StatelessWidget {
         TextEditingController(text: '');
 
     return Scaffold(
-      floatingActionButton: LongButton(
-        dest: LoginPage(),
-        iconArrow: "Right",
-        hinttext: "Sign Up",
-      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Center(
@@ -35,7 +30,7 @@ class SignUp extends StatelessWidget {
                       newnrpcontroller: newnrpcontroller,
                       newemailcontroller: newemailcontroller,
                       newpasswordcontroller: newpasswordcontroller,
-                      newangkatancontroller: newangkatancontroller))
+                      newangkatancontroller: newangkatancontroller)),
             ],
           ),
         ),
@@ -115,6 +110,11 @@ class StackSignUp extends StatelessWidget {
             controller: newangkatancontroller,
             hinttext: "Angkatan",
           ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 70, left: 170),
+            child: LongButton(
+                hinttext: "Login", iconArrow: "Right", dest: LoginPage()),
+          )
         ],
       ),
     );
