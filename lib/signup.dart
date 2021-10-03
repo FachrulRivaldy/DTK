@@ -1,10 +1,25 @@
+import 'package:dtk_database_tekkom/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/formtemplate.dart';
+import 'package:dtk_database_tekkom/buttontemplate.dart';
 
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TextEditingController newnrpcontroller = TextEditingController(text: '');
+    TextEditingController newpasswordcontroller =
+        TextEditingController(text: '');
+    TextEditingController newnamacontroller = TextEditingController(text: '');
+    TextEditingController newemailcontroller = TextEditingController(text: '');
+    TextEditingController newangkatancontroller =
+        TextEditingController(text: '');
+
     return Scaffold(
+      floatingActionButton: LongButton(
+        dest: LoginPage(),
+        iconArrow: "Right",
+        hinttext: "Sign Up",
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Center(
@@ -13,7 +28,14 @@ class SignUp extends StatelessWidget {
               Image.asset(
                 'assets/images/logotekkom.png',
                 scale: 4,
-              )
+              ),
+              Expanded(
+                  child: StackSignUp(
+                      newnamacontroller: newnamacontroller,
+                      newnrpcontroller: newnrpcontroller,
+                      newemailcontroller: newemailcontroller,
+                      newpasswordcontroller: newpasswordcontroller,
+                      newangkatancontroller: newangkatancontroller))
             ],
           ),
         ),
@@ -62,8 +84,22 @@ class StackSignUp extends StatelessWidget {
             height: 15,
           ),
           Formnya(
+            controller: newnamacontroller,
+            hinttext: "Nama",
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Formnya(
             controller: newnrpcontroller,
             hinttext: "NRP",
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Formnya(
+            controller: newemailcontroller,
+            hinttext: "Email",
           ),
           SizedBox(
             height: 15,
@@ -75,40 +111,10 @@ class StackSignUp extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          InkWell(
-            onTap: () {},
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Forgot Password",
-                style: TextStyle(
-                    decoration: TextDecoration.underline, color: Colors.white),
-              ),
-            ),
+          Formnya(
+            controller: newangkatancontroller,
+            hinttext: "Angkatan",
           ),
-          SizedBox(height: 15),
-          Row(
-            children: <Widget>[
-              Text(
-                "Doesn't Have Account?",
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignUp()));
-                  },
-                  child: Text(
-                    "Sign In Here",
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.white),
-                  ))
-            ],
-          )
         ],
       ),
     );
