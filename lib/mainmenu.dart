@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/loginpage.dart';
+import 'package:dtk_database_tekkom/pagesemester.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/buttontemplate.dart';
 
@@ -54,6 +55,7 @@ class MainMenu extends StatelessWidget {
         children: [
           TopMainMenu(),
           Container(
+            alignment: Alignment.center,
             child: Row(
               children: [
                 Column(
@@ -63,7 +65,7 @@ class MainMenu extends StatelessWidget {
                     Row(
                       children: [
                         (YellowButton(
-                          dest: LoginPage(),
+                          dest: PageSemester(),
                           hinttext: "SILABUS\n& BANK SOAL",
                         )),
                         SizedBox(

@@ -78,10 +78,38 @@ class YellowButton extends StatelessWidget {
 }
 
 class LongYellow extends StatelessWidget {
-  const LongYellow({Key? key}) : super(key: key);
+  final String semester;
+  final Color boxcolor;
+  final Widget dest;
+
+  LongYellow(
+      {required this.semester,
+      this.boxcolor = const Color(0xFFEDD113),
+      required this.dest});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 50,
+        width: 325,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: boxcolor,
+          ),
+          child: Text(
+            semester,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => dest));
+          },
+        ),
+      ),
+    );
   }
 }
