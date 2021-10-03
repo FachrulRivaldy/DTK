@@ -55,65 +55,69 @@ class MainMenu extends StatelessWidget {
         children: [
           TopMainMenu(),
           Container(
-            alignment: Alignment.center,
-            child: Row(
+            padding: EdgeInsets.symmetric(horizontal: 35),
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        (YellowButton(
-                          dest: PageSemester(),
-                          hinttext: "SILABUS\n& BANK SOAL",
-                        )),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        YellowButton(hinttext: "INFO LOMBA", dest: LoginPage())
-                      ],
-                    ),
+                    (YellowButton(
+                      dest: PageSemester(),
+                      hinttext: "SILABUS\n& BANK SOAL",
+                    )),
                     SizedBox(
-                      height: 15,
+                      width: 50,
                     ),
-                    Row(
-                      children: [
-                        (YellowButton(
-                          dest: LoginPage(),
-                          hinttext: "INFO\nWEBINAR",
-                          sizefont: 17,
-                        )),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        YellowButton(
-                          hinttext: "INFO\nWORKSHOP",
-                          dest: LoginPage(),
-                          sizefont: 14,
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                        (YellowButton(
-                          dest: LoginPage(),
-                          hinttext: "PRESTASI ANAK TK",
-                          sizefont: 16,
-                        )),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 55,
-                    ),
-                    LongButton(
-                        hinttext: "Logout",
-                        iconArrow: "Left",
-                        dest: LoginPage())
+                    YellowButton(hinttext: "INFO LOMBA", dest: LoginPage())
                   ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    (YellowButton(
+                      dest: LoginPage(),
+                      hinttext: "INFO\nWEBINAR",
+                      sizefont: 17,
+                    )),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    YellowButton(
+                      hinttext: "INFO\nWORKSHOP",
+                      dest: LoginPage(),
+                      sizefont: 14,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    (YellowButton(
+                      dest: LoginPage(),
+                      hinttext: "PRESTASI ANAK TK",
+                      sizefont: 16,
+                    )),
+                  ],
+                ),
+                SizedBox(
+                  height: 55,
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: LongButton(
+                      hinttext: "Logout", iconArrow: "Left", dest: LoginPage()),
                 )
               ],
             ),

@@ -122,11 +122,13 @@ class StackContainer extends StatelessWidget {
                   ))
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 70, left: 170),
-            child: LongButton(
-                hinttext: "Login", iconArrow: "Right", dest: MainMenu()),
-          )
+          SizedBox(
+            height: 50,
+          ),
+          Align(
+              alignment: Alignment.bottomRight,
+              child: LongButton(
+                  hinttext: "Login", iconArrow: "Right", dest: MainMenu()))
         ],
       ),
     );

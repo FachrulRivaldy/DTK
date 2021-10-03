@@ -13,14 +13,18 @@ class LongButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 30, bottom: 30),
+    return Container(
+      alignment: Alignment.center,
+      width: 100,
+      height: 45,
       child: ElevatedButton(
         style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18)))),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (iconArrow == "Left") Icon(Icons.arrow_left),
             Text(hinttext),
@@ -79,13 +83,18 @@ class YellowButton extends StatelessWidget {
 
 class LongYellow extends StatelessWidget {
   final String semester;
+  final int sks;
   final Color boxcolor;
   final Widget dest;
+  //final Widget destadmin;
 
-  LongYellow(
-      {required this.semester,
-      this.boxcolor = const Color(0xFFEDD113),
-      required this.dest});
+  LongYellow({
+    required this.semester,
+    this.boxcolor = const Color(0xFFEDD113),
+    required this.sks,
+    required this.dest,
+    //required this.destadmin
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +107,42 @@ class LongYellow extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             primary: boxcolor,
           ),
-          child: Text(
-            semester,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    semester,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
+                  ),
+                  Text(
+                    sks.toString() + " SKS",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
+                  ),
+                ],
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => dest));
+                },
+                child: Icon(
+                  Icons.edit,
+                  color: Colors.black,
+                ),
+              )
+            ],
           ),
           onPressed: () {
             Navigator.push(

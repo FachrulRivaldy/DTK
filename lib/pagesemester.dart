@@ -10,7 +10,7 @@ class PageSemesterTop extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 5),
         width: MediaQuery.of(context).size.width,
-        height: 95,
+        height: 100,
         decoration: BoxDecoration(
             color: Colors.blue,
             borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
@@ -60,20 +60,28 @@ class PageSemester extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          //PageSemesterTop(),
-          Padding(
-            padding: EdgeInsetsGeometry.infinity,
-            child: ListView(
-              children: [
-                YellowButton(hinttext: "Semester 1", dest: LoginPage()),
-                YellowButton(hinttext: "Semester 2", dest: LoginPage())
-              ],
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            PageSemesterTop(),
+            Expanded(
+              child: ListView(
+                children: [
+                  LongYellow(semester: "Semester 1", sks: 1, dest: LoginPage()),
+                  LongYellow(semester: "Semester 2", sks: 2, dest: LoginPage()),
+                  LongYellow(semester: "Semester 3", sks: 3, dest: LoginPage()),
+                  LongYellow(semester: "Semester 4", sks: 4, dest: LoginPage()),
+                  LongYellow(semester: "Semester 5", sks: 5, dest: LoginPage()),
+                  LongYellow(semester: "Semester 6", sks: 6, dest: LoginPage()),
+                  LongYellow(semester: "Semester 7", sks: 7, dest: LoginPage()),
+                  LongYellow(semester: "Semester 8", sks: 8, dest: LoginPage()),
+                ],
+              ),
             ),
-          )
-        ],
+            PageSemesterBot()
+          ],
+        ),
       ),
     );
   }
