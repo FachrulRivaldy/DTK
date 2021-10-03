@@ -1,6 +1,7 @@
 import 'package:dtk_database_tekkom/buttontemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/loginpage.dart';
+import 'package:dtk_database_tekkom/mainmenu.dart';
 
 class PageSemesterTop extends StatelessWidget {
   const PageSemesterTop({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class PageSemesterTop extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 5),
         width: MediaQuery.of(context).size.width,
-        height: 100,
+        height: 90,
         decoration: BoxDecoration(
             color: Colors.blue,
             borderRadius: BorderRadius.only(bottomRight: Radius.circular(60))),
@@ -65,6 +66,25 @@ class PageSemester extends StatelessWidget {
         child: Column(
           children: [
             PageSemesterTop(),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: 350,
+              height: 35,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(45), color: Colors.blue),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "DAFTAR SEMESTER",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
             Expanded(
               child: ListView(
                 children: [
@@ -92,6 +112,16 @@ class PageSemesterBot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: 70,
+      child: Align(
+        alignment: Alignment(-0.75, 0),
+        child: Column(
+          children: [
+            LongButton(hinttext: "Back", iconArrow: "Left", dest: MainMenu())
+          ],
+        ),
+      ),
+    );
   }
 }
