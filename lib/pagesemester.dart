@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/buttontemplate.dart';
+import 'package:dtk_database_tekkom/headerfooter.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/loginpage.dart';
 import 'package:dtk_database_tekkom/mainmenu.dart';
@@ -65,7 +66,7 @@ class PageSemester extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            PageSemesterTop(),
+            Header(),
             SizedBox(
               height: 15,
             ),

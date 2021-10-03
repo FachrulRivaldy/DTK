@@ -1,7 +1,11 @@
 import 'package:dtk_database_tekkom/loginpage.dart';
+import 'package:dtk_database_tekkom/pageinfowebinar.dart';
+import 'package:dtk_database_tekkom/pageinfoworkshop.dart';
+import 'package:dtk_database_tekkom/pageprestasi.dart';
 import 'package:dtk_database_tekkom/pagesemester.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/buttontemplate.dart';
+import 'package:dtk_database_tekkom/pageinfolomba.dart';
 
 class TopMainMenu extends StatelessWidget {
   @override
@@ -72,7 +76,7 @@ class MainMenu extends StatelessWidget {
                     SizedBox(
                       width: 50,
                     ),
-                    YellowButton(hinttext: "INFO LOMBA", dest: LoginPage())
+                    YellowButton(hinttext: "INFO LOMBA", dest: InfoLomba())
                   ],
                 ),
                 SizedBox(
@@ -83,7 +87,7 @@ class MainMenu extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     (YellowButton(
-                      dest: LoginPage(),
+                      dest: InfoWebinar(),
                       hinttext: "INFO\nWEBINAR",
                       sizefont: 17,
                     )),
@@ -92,7 +96,7 @@ class MainMenu extends StatelessWidget {
                     ),
                     YellowButton(
                       hinttext: "INFO\nWORKSHOP",
-                      dest: LoginPage(),
+                      dest: InfoWorkshop(),
                       sizefont: 14,
                     )
                   ],
@@ -105,7 +109,7 @@ class MainMenu extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     (YellowButton(
-                      dest: LoginPage(),
+                      dest: PrestasiATK(),
                       hinttext: "PRESTASI ANAK TK",
                       sizefont: 16,
                     )),

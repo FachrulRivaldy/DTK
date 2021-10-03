@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/headerfooter.dart';
 import 'package:flutter/material.dart';
 
 class PageMatkulDesc extends StatelessWidget {
@@ -5,6 +6,10 @@ class PageMatkulDesc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        child: Header(),
+      ),
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InfoLombaTop extends StatelessWidget {
-  const InfoLombaTop({Key? key}) : super(key: key);
+class Header extends StatelessWidget {
+  const Header({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +53,8 @@ class InfoLombaTop extends StatelessWidget {
   }
 }
 
-class InfoLomba extends StatelessWidget {
-  const InfoLomba({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(child: InfoLombaTop()),
-    );
-  }
-}
-
-class InfoLombaBot extends StatelessWidget {
-  const InfoLombaBot({Key? key}) : super(key: key);
+class FooterInfo extends StatelessWidget {
+  const FooterInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
