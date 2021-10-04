@@ -58,6 +58,9 @@ class MainMenu extends StatelessWidget {
       body: Column(
         children: [
           TopMainMenu(),
+          SizedBox(
+            height: 25,
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 35),
             width: MediaQuery.of(context).size.width,
