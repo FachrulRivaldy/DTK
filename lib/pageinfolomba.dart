@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/buttontemplate.dart';
 import 'package:dtk_database_tekkom/headerfooter.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,26 @@ class InfoLomba extends StatelessWidget {
         Header(),
         Expanded(
             child: ListView(
-          children: [],
+          children: [
+            YellowInfo(
+                poster: "poster",
+                namalomba: "namalomba",
+                penyelenggaralomba: "penyelenggaralomba",
+                skalalomba: "skalalomba",
+                tanggal: "tanggal"),
+            YellowInfo(
+                poster: "poster",
+                namalomba: "namalomba",
+                penyelenggaralomba: "penyelenggaralomba",
+                skalalomba: "skalalomba",
+                tanggal: "tanggal"),
+            YellowInfo(
+                poster: "poster",
+                namalomba: "namalomba",
+                penyelenggaralomba: "penyelenggaralomba",
+                skalalomba: "skalalomba",
+                tanggal: "tanggal")
+          ],
         ))
       ])),
     );

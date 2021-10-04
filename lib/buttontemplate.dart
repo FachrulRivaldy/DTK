@@ -155,10 +155,36 @@ class LongYellow extends StatelessWidget {
 }
 
 class YellowInfo extends StatelessWidget {
-  const YellowInfo({Key? key}) : super(key: key);
+  final String poster;
+  final String namalomba;
+  final String penyelenggaralomba;
+  final String tanggal;
+  final String skalalomba;
+  //final
+
+  YellowInfo(
+      {required this.poster,
+      required this.namalomba,
+      required this.penyelenggaralomba,
+      required this.skalalomba,
+      required this.tanggal});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+      child: Container(
+        height: 150,
+        width: 325,
+        child: Column(
+          children: [
+            Container(),
+            Row(
+              children: [],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
