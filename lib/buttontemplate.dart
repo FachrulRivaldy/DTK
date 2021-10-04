@@ -153,3 +153,12 @@ class LongYellow extends StatelessWidget {
     );
   }
 }
+
+class YellowInfo extends StatelessWidget {
+  const YellowInfo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
