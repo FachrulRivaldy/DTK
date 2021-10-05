@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class LongButton extends StatelessWidget {
   final String hinttext;
@@ -160,30 +161,73 @@ class YellowInfo extends StatelessWidget {
   final String penyelenggaralomba;
   final String tanggal;
   final String skalalomba;
-  //final
+  final int harga;
+  final harganya = new NumberFormat.simpleCurrency(locale: 'id_ID');
 
   YellowInfo(
       {required this.poster,
       required this.namalomba,
       required this.penyelenggaralomba,
       required this.skalalomba,
-      required this.tanggal});
+      required this.tanggal,
+      required this.harga});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+      padding: const EdgeInsets.only(bottom: 10, left: 15, right: 15),
       child: Container(
-        height: 150,
-        width: 325,
-        child: Column(
-          children: [
-            Container(),
-            Row(
-              children: [],
-            )
-          ],
+        color: Colors.yellow,
+        height: 130,
+        width: 350,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                height: 100,
+                width: 75,
+                color: Colors.blue,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Nama : " + namalomba),
+                  Text("Penyelenggara : " + penyelenggaralomba),
+                  Text("Skala : " + skalalomba),
+                  Text("Tanggal : " + tanggal),
+                  Text("Harga : " + harganya.format(harga))
+                ],
+              )
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class InfoBottom extends StatelessWidget {
+  final String hinttext;
+  final String iconArrow;
+  final Widget dest;
+
+  InfoBottom({
+    required this.hinttext,
+    required this.iconArrow,
+    required this.dest,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 5),
+      child: LongButton(
+        dest: dest,
+        hinttext: hinttext,
+        iconArrow: iconArrow,
       ),
     );
   }

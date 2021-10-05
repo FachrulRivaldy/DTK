@@ -10,42 +10,44 @@ import 'package:dtk_database_tekkom/pageinfolomba.dart';
 class TopMainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        width: MediaQuery.of(context).size.width,
-        height: 185,
-        decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(45),
-                bottomRight: Radius.circular(45))),
-        child: Row(children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(160),
-            child: Image.asset('assets/images/logotekkom.png', scale: 4),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "MUHAMAMD FACHRUL RIVALDY",
-                style: TextStyle(fontSize: 14),
-              ),
-              Text(
-                "07211940000032",
-                style: TextStyle(fontSize: 14),
-              ),
-              Text(
-                "SEMESTER 5",
-                style: TextStyle(fontSize: 14),
-              )
-            ],
-          )
-        ]));
+    return SafeArea(
+      child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          width: MediaQuery.of(context).size.width,
+          height: 155,
+          decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(45),
+                  bottomRight: Radius.circular(45))),
+          child: Row(children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(160),
+              child: Image.asset('assets/images/logotekkom.png', scale: 4),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "MUHAMMAD FACHRUL RIVALDY",
+                  style: TextStyle(fontSize: 14),
+                ),
+                Text(
+                  "07211940000032",
+                  style: TextStyle(fontSize: 14),
+                ),
+                Text(
+                  "SEMESTER 5",
+                  style: TextStyle(fontSize: 14),
+                )
+              ],
+            )
+          ])),
+    );
   }
 }
 
