@@ -1,8 +1,8 @@
-import 'package:dtk_database_tekkom/buttontemplate.dart';
-import 'package:dtk_database_tekkom/mainmenu.dart';
-import 'package:dtk_database_tekkom/signup.dart';
+import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
+import 'package:dtk_database_tekkom/mainpage/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:dtk_database_tekkom/formtemplate.dart';
+import 'package:dtk_database_tekkom/template/formtemplate.dart';
 
 class LoginPage extends StatelessWidget {
   @override

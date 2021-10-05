@@ -1,8 +1,8 @@
-import 'package:dtk_database_tekkom/buttontemplate.dart';
-import 'package:dtk_database_tekkom/headerfooter.dart';
-import 'package:dtk_database_tekkom/pagesemester.dart';
+import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:dtk_database_tekkom/template/headerfooter.dart';
+import 'package:dtk_database_tekkom/silabus/pagesemester.dart';
 import 'package:flutter/material.dart';
-import 'package:dtk_database_tekkom/loginpage.dart';
+import 'package:dtk_database_tekkom/mainpage/loginpage.dart';
 
 class PageMatkulSem extends StatelessWidget {
   const PageMatkulSem({Key? key}) : super(key: key);

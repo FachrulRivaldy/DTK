@@ -1,11 +1,11 @@
-import 'package:dtk_database_tekkom/loginpage.dart';
-import 'package:dtk_database_tekkom/pageinfowebinar.dart';
-import 'package:dtk_database_tekkom/pageinfoworkshop.dart';
-import 'package:dtk_database_tekkom/pageprestasi.dart';
-import 'package:dtk_database_tekkom/pagesemester.dart';
+import 'package:dtk_database_tekkom/mainpage/loginpage.dart';
+import 'package:dtk_database_tekkom/infowebinar/pageinfowebinar.dart';
+import 'package:dtk_database_tekkom/infoworkshop/pageinfoworkshop.dart';
+import 'package:dtk_database_tekkom/prestasianaktk/pageprestasi.dart';
+import 'package:dtk_database_tekkom/silabus/pagesemester.dart';
 import 'package:flutter/material.dart';
-import 'package:dtk_database_tekkom/buttontemplate.dart';
-import 'package:dtk_database_tekkom/pageinfolomba.dart';
+import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
 
 class TopMainMenu extends StatelessWidget {
   @override

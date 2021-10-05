@@ -1,6 +1,6 @@
-import 'package:dtk_database_tekkom/buttontemplate.dart';
-import 'package:dtk_database_tekkom/headerfooter.dart';
-import 'package:dtk_database_tekkom/mainmenu.dart';
+import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:dtk_database_tekkom/template/headerfooter.dart';
+import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 import 'package:flutter/material.dart';
 
 class InfoLomba extends StatelessWidget {

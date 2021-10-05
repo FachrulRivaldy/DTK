@@ -1,9 +1,9 @@
-import 'package:dtk_database_tekkom/buttontemplate.dart';
-import 'package:dtk_database_tekkom/headerfooter.dart';
-import 'package:dtk_database_tekkom/pagematkulsemester.dart';
+import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:dtk_database_tekkom/template/headerfooter.dart';
+import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
 import 'package:flutter/material.dart';
-import 'package:dtk_database_tekkom/loginpage.dart';
-import 'package:dtk_database_tekkom/mainmenu.dart';
+import 'package:dtk_database_tekkom/mainpage/loginpage.dart';
+import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 
 class PageSemester extends StatelessWidget {
   const PageSemester({Key? key}) : super(key: key);
