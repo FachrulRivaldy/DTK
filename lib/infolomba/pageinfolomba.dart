@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/infolomba/formlomba.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
@@ -57,7 +58,12 @@ class InfoLomba extends StatelessWidget {
                 harga: 155000)
           ],
         )),
-        InfoBottom(hinttext: "Back", iconArrow: "Left", dest: MainMenu())
+        InfoBottom(
+          hinttext: "Back",
+          iconArrow: "Left",
+          dest: FormLomba(),
+          dest1: MainMenu(),
+        )
       ])),
     );
   }

@@ -27,7 +27,8 @@ class LongButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (iconArrow == "Left") Icon(Icons.arrow_left),
+            if (iconArrow == "None")
+              if (iconArrow == "Left") Icon(Icons.arrow_left),
             Text(hinttext),
             if (iconArrow == "Right") Icon(Icons.arrow_right),
           ],
@@ -250,11 +251,13 @@ class InfoBottom extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
   final Widget dest;
+  final Widget dest1;
 
   InfoBottom({
     required this.hinttext,
     required this.iconArrow,
     required this.dest,
+    required this.dest1,
   });
 
   @override
@@ -281,7 +284,7 @@ class InfoBottom extends StatelessWidget {
           ),
           RoundedButton(
             symbol: "Store",
-            dest: dest,
+            dest: dest1,
           ),
         ],
       ),

@@ -6,6 +6,7 @@ class Formnya extends StatelessWidget {
   final Color textcolor;
   final double fontsize;
   final FontWeight fontweight;
+  final double height;
 
   const Formnya({
     required this.controller,
@@ -14,6 +15,7 @@ class Formnya extends StatelessWidget {
     this.fontsize = 14,
     this.textcolor = Colors.black,
     this.fontweight = FontWeight.normal,
+    this.height = 50,
   });
 
   final TextEditingController controller;
@@ -23,7 +25,7 @@ class Formnya extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25),
       width: MediaQuery.of(context).size.width,
-      height: 50,
+      height: height,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(50)),
       child: TextFormField(
