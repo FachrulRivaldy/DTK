@@ -209,6 +209,43 @@ class YellowInfo extends StatelessWidget {
   }
 }
 
+class RoundedButton extends StatelessWidget {
+  final String symbol;
+  final Widget dest;
+
+  RoundedButton({
+    required this.symbol,
+    required this.dest,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      width: 60,
+      height: 60,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18)))),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (symbol == "Plus") Icon(Icons.add),
+            if (symbol == "Store") Icon(Icons.store),
+          ],
+        ),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => dest));
+        },
+      ),
+    );
+  }
+}
+
 class InfoBottom extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
@@ -224,10 +261,29 @@ class InfoBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 5),
-      child: LongButton(
-        dest: dest,
-        hinttext: hinttext,
-        iconArrow: iconArrow,
+      height: 100,
+      width: 350,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          LongButton(
+            dest: dest,
+            hinttext: hinttext,
+            iconArrow: iconArrow,
+          ),
+          SizedBox(
+            width: 70,
+          ),
+          RoundedButton(
+            symbol: "Plus",
+            dest: dest,
+          ),
+          RoundedButton(
+            symbol: "Store",
+            dest: dest,
+          ),
+        ],
       ),
     );
   }
