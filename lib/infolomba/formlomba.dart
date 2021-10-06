@@ -94,6 +94,7 @@ class KolomFormInfo extends StatelessWidget {
             borderRadius: BorderRadius.circular(15), color: Colors.yellow),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Formnya(
               controller: namacontroller,
@@ -115,6 +116,7 @@ class KolomFormInfo extends StatelessWidget {
               controller: tanggalcontroller,
               height: 40,
             ),
+            UploadPhoto(),
             SizedBox(
               height: 150,
             )

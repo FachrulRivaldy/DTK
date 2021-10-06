@@ -58,7 +58,7 @@ class InfoWebinar extends StatelessWidget {
                 harga: 155000)
           ],
         )),
-        InfoBottom(
+        InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",
           plus: FormInfo(),

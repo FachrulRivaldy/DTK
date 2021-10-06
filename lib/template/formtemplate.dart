@@ -40,3 +40,24 @@ class Formnya extends StatelessWidget {
     );
   }
 }
+
+class UploadPhoto extends StatelessWidget {
+  const UploadPhoto({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 75,
+      child: ElevatedButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add_photo_alternate_outlined,
+          color: Colors.black,
+        ),
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.white)),
+      ),
+    );
+  }
+}

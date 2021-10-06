@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
+import 'package:dtk_database_tekkom/prestasianaktk/tambahprestasi.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class PrestasiATK extends StatelessWidget {
                   SizedBox(
                     width: 15,
                   ),
-                  RoundedButton(symbol: "Plus", dest: MainMenu())
+                  RoundedButton(symbol: "Plus", dest: TambahPrestasi())
                 ],
               ),
             )
@@ -65,19 +66,19 @@ class PrestasiATK extends StatelessWidget {
 
 class DataPrestasi extends StatelessWidget {
   final String namalomba;
-  final String anggota1;
-  final String anggota2;
-  final String anggota3;
-  final String anggota4;
-  final String anggota5;
+  final String fotoanggota1;
+  final String fotoanggota2;
+  final String fotoanggota3;
+  final String fotoanggota4;
+  final String fotoanggota5;
 
   DataPrestasi({
     required this.namalomba,
-    this.anggota1 = '',
-    this.anggota2 = '',
-    this.anggota3 = '',
-    this.anggota4 = '',
-    this.anggota5 = '',
+    this.fotoanggota1 = '',
+    this.fotoanggota2 = '',
+    this.fotoanggota3 = '',
+    this.fotoanggota4 = '',
+    this.fotoanggota5 = '',
   });
 
   @override
@@ -104,8 +105,8 @@ class DataPrestasi extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.black),
-                          image:
-                              DecorationImage(image: NetworkImage(anggota1))),
+                          image: DecorationImage(
+                              image: NetworkImage(fotoanggota1))),
                     ),
                     Container(
                       width: 60,
@@ -113,8 +114,8 @@ class DataPrestasi extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.black),
-                          image:
-                              DecorationImage(image: NetworkImage(anggota1))),
+                          image: DecorationImage(
+                              image: NetworkImage(fotoanggota2))),
                     ),
                     Container(
                       width: 60,
@@ -122,8 +123,8 @@ class DataPrestasi extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.black),
-                          image:
-                              DecorationImage(image: NetworkImage(anggota1))),
+                          image: DecorationImage(
+                              image: NetworkImage(fotoanggota3))),
                     )
                   ],
                 ),
@@ -136,8 +137,8 @@ class DataPrestasi extends StatelessWidget {
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.black),
-                            image:
-                                DecorationImage(image: NetworkImage(anggota1))),
+                            image: DecorationImage(
+                                image: NetworkImage(fotoanggota4))),
                       ),
                       Container(
                         width: 60,
@@ -145,8 +146,8 @@ class DataPrestasi extends StatelessWidget {
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(color: Colors.black),
-                            image:
-                                DecorationImage(image: NetworkImage(anggota1))),
+                            image: DecorationImage(
+                                image: NetworkImage(fotoanggota5))),
                       )
                     ]),
               ])),

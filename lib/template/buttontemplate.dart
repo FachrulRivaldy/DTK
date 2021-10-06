@@ -247,14 +247,14 @@ class RoundedButton extends StatelessWidget {
   }
 }
 
-class InfoBottom extends StatelessWidget {
+class InfoBottomAdmin extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
   final Widget back;
   final Widget plus;
   final Widget store;
 
-  InfoBottom({
+  InfoBottomAdmin({
     required this.hinttext,
     required this.iconArrow,
     required this.back,
