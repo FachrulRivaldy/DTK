@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/silabus/pagematkuldesc.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/silabus/pagesemester.dart';
@@ -37,7 +38,9 @@ class PageMatkulSem extends StatelessWidget {
               child: ListView(
                 children: [
                   LongYellow(
-                      semester: "Dasar Pemrograman", sks: 3, dest: LoginPage()),
+                      semester: "Dasar Pemrograman",
+                      sks: 3,
+                      dest: DescMatkul()),
                   LongYellow(
                       semester: "Pengantar Teknologi Elektro",
                       sks: 2,

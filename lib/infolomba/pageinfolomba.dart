@@ -61,8 +61,9 @@ class InfoLomba extends StatelessWidget {
         InfoBottom(
           hinttext: "Back",
           iconArrow: "Left",
-          dest: FormLomba(),
-          dest1: MainMenu(),
+          plus: FormInfo(),
+          back: MainMenu(),
+          store: MainMenu(),
         )
       ])),
     );

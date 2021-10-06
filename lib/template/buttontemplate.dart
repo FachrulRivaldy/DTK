@@ -250,14 +250,16 @@ class RoundedButton extends StatelessWidget {
 class InfoBottom extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
-  final Widget dest;
-  final Widget dest1;
+  final Widget back;
+  final Widget plus;
+  final Widget store;
 
   InfoBottom({
     required this.hinttext,
     required this.iconArrow,
-    required this.dest,
-    required this.dest1,
+    required this.back,
+    required this.plus,
+    required this.store,
   });
 
   @override
@@ -271,7 +273,7 @@ class InfoBottom extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           LongButton(
-            dest: dest,
+            dest: back,
             hinttext: hinttext,
             iconArrow: iconArrow,
           ),
@@ -280,11 +282,11 @@ class InfoBottom extends StatelessWidget {
           ),
           RoundedButton(
             symbol: "Plus",
-            dest: dest,
+            dest: plus,
           ),
           RoundedButton(
             symbol: "Store",
-            dest: dest1,
+            dest: store,
           ),
         ],
       ),

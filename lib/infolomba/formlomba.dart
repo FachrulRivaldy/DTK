@@ -4,7 +4,7 @@ import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';
 
-class FormLomba extends StatelessWidget {
+class FormInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController namacontroller = TextEditingController(text: '');
@@ -39,7 +39,7 @@ class FormLomba extends StatelessWidget {
                 ],
               ),
             ),
-            KolomFormLomba(
+            KolomFormInfo(
                 namacontroller: namacontroller,
                 penyelenggaracontroller: penyelenggaracontroller,
                 skalacontroller: skalacontroller,
@@ -64,7 +64,7 @@ class FormLomba extends StatelessWidget {
   }
 }
 
-class KolomFormLomba extends StatelessWidget {
+class KolomFormInfo extends StatelessWidget {
   final TextEditingController namacontroller;
   final TextEditingController penyelenggaracontroller;
   final TextEditingController skalacontroller;
@@ -72,7 +72,7 @@ class KolomFormLomba extends StatelessWidget {
   final TextEditingController tanggalcontroller;
   //final TextEditingController postercontroller;
 
-  KolomFormLomba({
+  KolomFormInfo({
     required this.namacontroller,
     required this.penyelenggaracontroller,
     required this.skalacontroller,

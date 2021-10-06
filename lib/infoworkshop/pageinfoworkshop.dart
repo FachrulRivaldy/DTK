@@ -61,8 +61,9 @@ class InfoWorkshop extends StatelessWidget {
         InfoBottom(
           hinttext: "Back",
           iconArrow: "Left",
-          dest: MainMenu(),
-          dest1: MainMenu(),
+          plus: FormInfo(),
+          back: MainMenu(),
+          store: MainMenu(),
         )
       ])),
     );
