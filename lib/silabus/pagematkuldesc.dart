@@ -56,27 +56,84 @@ class DescMatkul extends StatelessWidget {
 }
 
 class PokokBahasan extends StatelessWidget {
-  const PokokBahasan({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-      child: Container(
-        color: Colors.yellow,
-        height: 275,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+        child: Container(
+          color: Colors.yellow,
+          height: 275,
+          width: MediaQuery.of(context).size.width,
+          child: Column(children: [
             Padding(padding: EdgeInsets.all(8.0)),
             Text(
               "POKOK BAHASAN",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-          ],
-        ),
-      ),
-    );
+            Expanded(
+                child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
+                childAspectRatio: 4,
+              ),
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.lightBlue,
+                  child: Text(
+                    "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                );
+              },
+            ))
+
+            /*Expanded(
+              child: GridView.count(
+                padding: EdgeInsets.all(15),
+                crossAxisCount: 2,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                shrinkWrap: true,
+                childAspectRatio: 4,
+                children: [
+                  Container(
+                    color: Colors.red,
+                    child: Text(
+                      "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                  Container(
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+            )*/
+          ]),
+        ));
   }
 }
 

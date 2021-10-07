@@ -33,6 +33,19 @@ class InfoWorkshop extends StatelessWidget {
           ),
         ),
         Expanded(
+            child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return YellowInfo(
+                      poster: "",
+                      namalomba: "MAGE 7",
+                      penyelenggaralomba: "TEKNIK KOMPUTER ITS",
+                      skalalomba: "NASIONAL",
+                      tanggal: "5 OKTOBER 2021",
+                      harga: 100000);
+                })),
+
+        /*Expanded(
             child: ListView(
           children: [
             YellowInfo(
@@ -57,7 +70,7 @@ class InfoWorkshop extends StatelessWidget {
                 tanggal: "5 OKTOBER 2021",
                 harga: 155000)
           ],
-        )),
+        )),*/
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",
