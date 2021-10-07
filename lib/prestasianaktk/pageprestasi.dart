@@ -1,5 +1,5 @@
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
-import 'package:dtk_database_tekkom/prestasianaktk/tambahprestasi.dart';
+import 'package:dtk_database_tekkom/prestasianaktk/formprestasi.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';

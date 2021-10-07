@@ -4,7 +4,7 @@ import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';
 
-class FormLomba extends StatelessWidget {
+class FormWebinar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController namacontroller = TextEditingController(text: '');
@@ -64,14 +64,12 @@ class FormLomba extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class KolomFormInfo extends StatelessWidget {
   final TextEditingController namacontroller;
   final TextEditingController penyelenggaracontroller;
   final TextEditingController skalacontroller;
   final TextEditingController biayacontroller;
   final TextEditingController tanggalcontroller;
-  String? skala;
   //final TextEditingController postercontroller;
 
   KolomFormInfo({
@@ -80,7 +78,6 @@ class KolomFormInfo extends StatelessWidget {
     required this.skalacontroller,
     required this.biayacontroller,
     required this.tanggalcontroller,
-    this.skala = '',
     //required this.postercontroller
   });
 
@@ -107,45 +104,16 @@ class KolomFormInfo extends StatelessWidget {
               controller: penyelenggaracontroller,
               height: 40,
             ),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('Skala'),
-                  InputDecorator(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      contentPadding: EdgeInsets.all(10),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        value: skala,
-                        isDense: true,
-                        isExpanded: true,
-                        dropdownColor: Colors.white,
-                        items: [
-                          DropdownMenuItem(
-                              child: Text("Pilih Skala Lomba"), value: ""),
-                          DropdownMenuItem(
-                              child: Text("Nasional"), value: "Nasional"),
-                          DropdownMenuItem(
-                              child: Text("Internasional"),
-                              value: "Internasional"),
-                        ],
-                        onChanged: (value) {
-                          skala = value;
-                        },
-                      ),
-                    ),
-                  ),
-                ]),
             Formnya(
               controller: skalacontroller,
               height: 40,
             ),
             Formnya(
               controller: biayacontroller,
+              height: 40,
+            ),
+            Formnya(
+              controller: tanggalcontroller,
               height: 40,
             ),
             UploadPhoto(),

@@ -1,4 +1,4 @@
-import 'package:dtk_database_tekkom/infolomba/formlomba.dart';
+import 'package:dtk_database_tekkom/infoworkshop/formworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
@@ -74,7 +74,7 @@ class InfoWorkshop extends StatelessWidget {
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",
-          plus: FormInfo(),
+          plus: FormWorkshop(),
           back: MainMenu(),
           store: MainMenu(),
         )
