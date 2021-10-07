@@ -1,4 +1,4 @@
-import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
+import 'package:dtk_database_tekkom/silabus/pagebanksoal.dart';
 import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -43,7 +43,7 @@ class DescMatkul extends StatelessWidget {
                         hinttext: "Back",
                         iconArrow: "Left",
                         dest: PageMatkulSem()),
-                    YellowButton(hinttext: "BANK\nSOAL", dest: MainMenu())
+                    YellowButton(hinttext: "BANK\nSOAL", dest: BankSoal())
                   ],
                 ),
               )
@@ -90,48 +90,6 @@ class PokokBahasan extends StatelessWidget {
                 );
               },
             ))
-
-            /*Expanded(
-              child: GridView.count(
-                padding: EdgeInsets.all(15),
-                crossAxisCount: 2,
-                mainAxisSpacing: 5,
-                crossAxisSpacing: 5,
-                shrinkWrap: true,
-                childAspectRatio: 4,
-                children: [
-                  Container(
-                    color: Colors.red,
-                    child: Text(
-                      "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                  Container(
-                    color: Colors.red,
-                  ),
-                ],
-              ),
-            )*/
           ]),
         ));
   }

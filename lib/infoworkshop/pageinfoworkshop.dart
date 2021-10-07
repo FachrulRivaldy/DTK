@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
 import 'package:dtk_database_tekkom/infoworkshop/formworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -26,7 +27,7 @@ class InfoWorkshop extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "INFO LOMBA",
+                "INFO WORKSHOP",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
@@ -44,39 +45,12 @@ class InfoWorkshop extends StatelessWidget {
                       tanggal: "5 OKTOBER 2021",
                       harga: 100000);
                 })),
-
-        /*Expanded(
-            child: ListView(
-          children: [
-            YellowInfo(
-                poster: "",
-                namalomba: "MAGE 7",
-                penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                skalalomba: "NASIONAL",
-                tanggal: "5 OKTOBER 2021",
-                harga: 100000),
-            YellowInfo(
-                poster: "",
-                namalomba: "MAGE 7",
-                penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                skalalomba: "NASIONAL",
-                tanggal: "5 OKTOBER 2021",
-                harga: 150000),
-            YellowInfo(
-                poster: "",
-                namalomba: "MAGE 7",
-                penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                skalalomba: "NASIONAL",
-                tanggal: "5 OKTOBER 2021",
-                harga: 155000)
-          ],
-        )),*/
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",
           plus: FormWorkshop(),
           back: MainMenu(),
-          store: MainMenu(),
+          store: DatabankWorkshop(),
         )
       ])),
     );

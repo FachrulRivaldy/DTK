@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
+import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -53,7 +54,9 @@ class FormWorkshop extends StatelessWidget {
                   LongButton(
                       hinttext: "Back", iconArrow: "Left", dest: InfoLomba()),
                   LongButton(
-                      hinttext: "Submit", iconArrow: "None", dest: InfoLomba())
+                      hinttext: "Submit",
+                      iconArrow: "None",
+                      dest: DatabankWorkshop())
                 ],
               ),
             )
