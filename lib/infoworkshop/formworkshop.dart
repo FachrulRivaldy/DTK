@@ -69,6 +69,7 @@ class FormWorkshop extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class KolomFormInfo extends StatelessWidget {
   final TextEditingController namacontroller;
   final TextEditingController matericontroller;
