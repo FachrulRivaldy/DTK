@@ -64,33 +64,57 @@ class PokokBahasan extends StatelessWidget {
           color: Colors.yellow,
           height: 275,
           width: MediaQuery.of(context).size.width,
-          child: Column(children: [
-            Padding(padding: EdgeInsets.all(8.0)),
-            Text(
-              "POKOK BAHASAN",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            Expanded(
-                child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5,
-                childAspectRatio: 4,
-              ),
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return Container(
-                  color: Colors.lightBlue,
-                  child: Text(
-                    "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "POKOK BAHASAN",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                );
-              },
-            ))
-          ]),
+                  SizedBox(
+                    width: 75,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => BankSoal()));
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                  child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 180,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                  childAspectRatio: 4,
+                ),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.lightBlue,
+                    ),
+                    child: Text(
+                      "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  );
+                },
+              ))
+            ]),
+          ),
         ));
   }
 }
@@ -106,14 +130,34 @@ class Pustaka extends StatelessWidget {
           color: Colors.yellow,
           height: 175,
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Padding(padding: EdgeInsets.all(8.0)),
-              Text(
-                "PUSTAKA",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Text(
+                  "PUSTAKA",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: EdgeInsets.all(8),
+                          width: 250,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: Colors.lightBlue,
+                          ),
+                          child: Text("JUDUL BUKU DAN PENGARANG"),
+                        );
+                      }),
+                ),
+              ],
+            ),
           ),
         ));
   }

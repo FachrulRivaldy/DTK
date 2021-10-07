@@ -1,4 +1,4 @@
-import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
+import 'package:dtk_database_tekkom/silabus/pagematkuldesc.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,6 @@ class BankSoal extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Container(
-                      color: Colors.yellow,
                       width: MediaQuery.of(context).size.width,
                       child: Column(children: [
                         Padding(padding: EdgeInsets.all(8.0)),
@@ -53,14 +52,15 @@ class BankSoal extends StatelessWidget {
                             maxCrossAxisExtent: 200,
                             crossAxisSpacing: 5,
                             mainAxisSpacing: 5,
-                            childAspectRatio: 4,
+                            childAspectRatio: 1.25,
                           ),
                           itemCount: 5,
                           itemBuilder: (context, index) {
                             return Container(
+                              padding: EdgeInsets.all(8),
                               color: Colors.lightBlue,
                               child: Text(
-                                "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
+                                "QUIZ",
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                               ),
@@ -80,7 +80,7 @@ class BankSoal extends StatelessWidget {
                       LongButton(
                           hinttext: "Back",
                           iconArrow: "Left",
-                          dest: PageMatkulSem()),
+                          dest: DescMatkul()),
                       SizedBox(
                         width: 100,
                       ),

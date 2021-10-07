@@ -1,4 +1,5 @@
 import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
+import 'package:dtk_database_tekkom/infowebinar/databankwebinar.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -33,7 +34,7 @@ class FormWebinar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "TAMBAH INFO LOMBA",
+                    "TAMBAH INFO WEBINAR",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -53,7 +54,9 @@ class FormWebinar extends StatelessWidget {
                   LongButton(
                       hinttext: "Back", iconArrow: "Left", dest: InfoLomba()),
                   LongButton(
-                      hinttext: "Submit", iconArrow: "None", dest: InfoLomba())
+                      hinttext: "Submit",
+                      iconArrow: "None",
+                      dest: DatabankWebinar())
                 ],
               ),
             )
@@ -64,12 +67,14 @@ class FormWebinar extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class KolomFormInfo extends StatelessWidget {
   final TextEditingController namacontroller;
   final TextEditingController penyelenggaracontroller;
   final TextEditingController skalacontroller;
   final TextEditingController biayacontroller;
   final TextEditingController tanggalcontroller;
+  String? skala;
   //final TextEditingController postercontroller;
 
   KolomFormInfo({
@@ -78,6 +83,7 @@ class KolomFormInfo extends StatelessWidget {
     required this.skalacontroller,
     required this.biayacontroller,
     required this.tanggalcontroller,
+    this.skala = '',
     //required this.postercontroller
   });
 
@@ -104,16 +110,45 @@ class KolomFormInfo extends StatelessWidget {
               controller: penyelenggaracontroller,
               height: 40,
             ),
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Skala'),
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                      contentPadding: EdgeInsets.all(10),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        value: skala,
+                        isDense: true,
+                        isExpanded: true,
+                        dropdownColor: Colors.white,
+                        items: [
+                          DropdownMenuItem(
+                              child: Text("Pilih Skala Webinar"), value: ""),
+                          DropdownMenuItem(
+                              child: Text("Nasional"), value: "Nasional"),
+                          DropdownMenuItem(
+                              child: Text("Internasional"),
+                              value: "Internasional"),
+                        ],
+                        onChanged: (value) {
+                          skala = value;
+                        },
+                      ),
+                    ),
+                  ),
+                ]),
             Formnya(
               controller: skalacontroller,
               height: 40,
             ),
             Formnya(
               controller: biayacontroller,
-              height: 40,
-            ),
-            Formnya(
-              controller: tanggalcontroller,
               height: 40,
             ),
             UploadPhoto(),

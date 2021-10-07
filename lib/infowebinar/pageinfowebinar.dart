@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/infowebinar/databankwebinar.dart';
 import 'package:dtk_database_tekkom/infowebinar/formwebinar.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -49,7 +50,7 @@ class InfoWebinar extends StatelessWidget {
           iconArrow: "Left",
           plus: FormWebinar(),
           back: MainMenu(),
-          store: MainMenu(),
+          store: DatabankWebinar(),
         )
       ])),
     );

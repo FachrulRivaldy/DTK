@@ -23,7 +23,7 @@ class DatabankWorkshop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "INFO LOMBA",
+              "DATABANK WORKSHOP",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],

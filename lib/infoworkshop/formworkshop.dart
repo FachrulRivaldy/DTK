@@ -9,6 +9,7 @@ class FormWorkshop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController namacontroller = TextEditingController(text: '');
+    TextEditingController matericontroller = TextEditingController(text: '');
     TextEditingController penyelenggaracontroller =
         TextEditingController(text: '');
     TextEditingController skalacontroller = TextEditingController(text: '');
@@ -34,7 +35,7 @@ class FormWorkshop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "TAMBAH INFO LOMBA",
+                    "TAMBAH INFO WORKSHOP",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -42,6 +43,7 @@ class FormWorkshop extends StatelessWidget {
             ),
             KolomFormInfo(
                 namacontroller: namacontroller,
+                matericontroller: matericontroller,
                 penyelenggaracontroller: penyelenggaracontroller,
                 skalacontroller: skalacontroller,
                 biayacontroller: biayacontroller,
@@ -69,18 +71,22 @@ class FormWorkshop extends StatelessWidget {
 
 class KolomFormInfo extends StatelessWidget {
   final TextEditingController namacontroller;
+  final TextEditingController matericontroller;
   final TextEditingController penyelenggaracontroller;
   final TextEditingController skalacontroller;
   final TextEditingController biayacontroller;
   final TextEditingController tanggalcontroller;
+  String? skala;
   //final TextEditingController postercontroller;
 
   KolomFormInfo({
     required this.namacontroller,
+    required this.matericontroller,
     required this.penyelenggaracontroller,
     required this.skalacontroller,
     required this.biayacontroller,
     required this.tanggalcontroller,
+    this.skala,
     //required this.postercontroller
   });
 
@@ -104,13 +110,46 @@ class KolomFormInfo extends StatelessWidget {
               height: 40,
             ),
             Formnya(
-              controller: penyelenggaracontroller,
+              controller: matericontroller,
               height: 40,
             ),
             Formnya(
-              controller: skalacontroller,
+              controller: penyelenggaracontroller,
               height: 40,
             ),
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Skala'),
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                      contentPadding: EdgeInsets.all(10),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        value: skala,
+                        isDense: true,
+                        isExpanded: true,
+                        dropdownColor: Colors.white,
+                        items: [
+                          DropdownMenuItem(
+                              child: Text("Pilih Skala Workshop"), value: ""),
+                          DropdownMenuItem(
+                              child: Text("Nasional"), value: "Nasional"),
+                          DropdownMenuItem(
+                              child: Text("Internasional"),
+                              value: "Internasional"),
+                        ],
+                        onChanged: (value) {
+                          skala = value;
+                        },
+                      ),
+                    ),
+                  ),
+                ]),
             Formnya(
               controller: biayacontroller,
               height: 40,
