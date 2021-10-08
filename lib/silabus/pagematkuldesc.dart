@@ -79,8 +79,26 @@ class PokokBahasan extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => BankSoal()));
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Center(
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: Container(
+                                  color: Colors.yellow,
+                                  height: 150,
+                                  width: 350,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child: Container(
+                                      color: Colors.lightBlue,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          });
                     },
                     child: Icon(
                       Icons.edit,
@@ -150,10 +168,26 @@ class Pustaka extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BankSoal()));
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Center(
+                                child: Material(
+                                  type: MaterialType.transparency,
+                                  child: Container(
+                                    color: Colors.yellow,
+                                    height: 150,
+                                    width: 350,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(15),
+                                      child: Container(
+                                        color: Colors.lightBlue,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            });
                       },
                       child: Icon(
                         Icons.edit,

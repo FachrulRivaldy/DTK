@@ -110,7 +110,51 @@ class BankSoal extends StatelessWidget {
                       SizedBox(
                         width: 100,
                       ),
-                      RoundedButton(symbol: "Plus", dest: BankSoal())
+                      Container(
+                          alignment: Alignment.center,
+                          width: 60,
+                          height: 60,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(18)))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(Icons.add),
+                              ],
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Center(
+                                      child: Material(
+                                        type: MaterialType.transparency,
+                                        child: Container(
+                                          color: Colors.yellow,
+                                          height: 350,
+                                          width: 350,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(15),
+                                            child: Container(
+                                              color: Colors.lightBlue,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                              /*Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => BankSoal()));*/
+                            },
+                          ))
                     ],
                   ),
                 ),
