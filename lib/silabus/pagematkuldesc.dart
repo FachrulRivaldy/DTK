@@ -109,7 +109,7 @@ class PokokBahasan extends StatelessWidget {
                       color: Colors.lightBlue,
                     ),
                     child: Text(
-                      "ARSITEKTUR DAN ORGANISASI SISTEM KOMPUTER",
+                      "BAHASA PEMROGRAMAN",
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
@@ -137,9 +137,30 @@ class Pustaka extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Text(
-                  "PUSTAKA",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "PUSTAKA",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: 100,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BankSoal()));
+                      },
+                      child: Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 5,

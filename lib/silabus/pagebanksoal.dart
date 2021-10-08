@@ -60,13 +60,34 @@ class BankSoal extends StatelessWidget {
                               padding: EdgeInsets.all(8),
                               color: Colors.yellow,
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text(
-                                    "QUIZ",
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                        "QUIZ",
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                      )
+                                    ],
                                   ),
-                                  Container(child: Icon(Icons.download))
+                                  Container(child: Icon(Icons.picture_as_pdf)),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      SizedBox(
+                                        width: 100,
+                                      ),
+                                      Container(child: Icon(Icons.download)),
+                                    ],
+                                  )
                                 ],
                               ),
                             );

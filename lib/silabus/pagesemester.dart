@@ -2,7 +2,6 @@ import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
 import 'package:flutter/material.dart';
-import 'package:dtk_database_tekkom/mainpage/loginpage.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 
 class PageSemester extends StatelessWidget {
@@ -38,14 +37,21 @@ class PageSemester extends StatelessWidget {
               child: ListView(
                 children: [
                   LongYellow(
-                      semester: "Semester 1", sks: 1, dest: PageMatkulSem()),
-                  LongYellow(semester: "Semester 2", sks: 2, dest: LoginPage()),
-                  LongYellow(semester: "Semester 3", sks: 3, dest: LoginPage()),
-                  LongYellow(semester: "Semester 4", sks: 4, dest: LoginPage()),
-                  LongYellow(semester: "Semester 5", sks: 5, dest: LoginPage()),
-                  LongYellow(semester: "Semester 6", sks: 6, dest: LoginPage()),
-                  LongYellow(semester: "Semester 7", sks: 7, dest: LoginPage()),
-                  LongYellow(semester: "Semester 8", sks: 8, dest: LoginPage()),
+                      semester: "Semester 1", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 2", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 3", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 4", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 5", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 6", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 7", sks: 18, dest: PageMatkulSem()),
+                  LongYellow(
+                      semester: "Semester 8", sks: 18, dest: PageMatkulSem()),
                 ],
               ),
             ),
