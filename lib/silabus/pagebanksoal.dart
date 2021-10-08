@@ -58,11 +58,16 @@ class BankSoal extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return Container(
                               padding: EdgeInsets.all(8),
-                              color: Colors.lightBlue,
-                              child: Text(
-                                "QUIZ",
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                              color: Colors.yellow,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "QUIZ",
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                  Container(child: Icon(Icons.download))
+                                ],
                               ),
                             );
                           },

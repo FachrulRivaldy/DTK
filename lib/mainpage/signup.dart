@@ -63,57 +63,64 @@ class StackSignUp extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(55), topRight: Radius.circular(55))),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Center(
             child: Text(
-              "LOGIN",
+              "DAFTAR AKUN",
               style: TextStyle(
-                  fontSize: 36,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-          ),
-          SizedBox(
-            height: 15,
           ),
           Formnya(
             controller: newnamacontroller,
             hinttext: "Nama",
           ),
-          SizedBox(
-            height: 15,
-          ),
           Formnya(
             controller: newnrpcontroller,
             hinttext: "NRP",
-          ),
-          SizedBox(
-            height: 15,
           ),
           Formnya(
             controller: newemailcontroller,
             hinttext: "Email",
           ),
-          SizedBox(
-            height: 15,
-          ),
           Formnya(
             controller: newpasswordcontroller,
             hinttext: "Password",
-          ),
-          SizedBox(
-            height: 15,
           ),
           Formnya(
             controller: newangkatancontroller,
             hinttext: "Angkatan",
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 70, left: 170),
+          Align(
+            alignment: Alignment(-0.95, 0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 25,
+                  child: Text(
+                    "Upload Foto",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                UploadPhoto(),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
             child: LongButton(
-                hinttext: "Login", iconArrow: "Right", dest: LoginPage()),
+              hinttext: "Sign Up",
+              iconArrow: "Right",
+              dest: LoginPage(),
+              width: 105,
+            ),
+          ),
+          SizedBox(
+            height: 50,
           )
         ],
       ),

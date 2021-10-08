@@ -5,18 +5,19 @@ class LongButton extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
   final Widget dest;
+  final double width;
 
-  LongButton({
-    required this.hinttext,
-    required this.iconArrow,
-    required this.dest,
-  });
+  LongButton(
+      {required this.hinttext,
+      required this.iconArrow,
+      required this.dest,
+      this.width = 100});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 100,
+      width: width,
       height: 45,
       child: ElevatedButton(
         style: ButtonStyle(

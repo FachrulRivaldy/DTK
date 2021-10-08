@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/infolomba/databanklomba.dart';
 import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
@@ -53,7 +54,9 @@ class FormLomba extends StatelessWidget {
                   LongButton(
                       hinttext: "Back", iconArrow: "Left", dest: InfoLomba()),
                   LongButton(
-                      hinttext: "Submit", iconArrow: "None", dest: InfoLomba())
+                      hinttext: "Submit",
+                      iconArrow: "None",
+                      dest: DatabankLomba())
                 ],
               ),
             )
@@ -102,10 +105,12 @@ class KolomFormInfo extends StatelessWidget {
             Formnya(
               controller: namacontroller,
               height: 40,
+              hinttext: "Nama",
             ),
             Formnya(
               controller: penyelenggaracontroller,
               height: 40,
+              hinttext: "Penyelenggara",
             ),
             Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,8 +119,9 @@ class KolomFormInfo extends StatelessWidget {
                   InputDecorator(
                     decoration: InputDecoration(
                       fillColor: Colors.white,
+                      filled: true,
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
+                          borderRadius: BorderRadius.circular(50)),
                       contentPadding: EdgeInsets.all(10),
                     ),
                     child: DropdownButtonHideUnderline(
@@ -141,12 +147,18 @@ class KolomFormInfo extends StatelessWidget {
                   ),
                 ]),
             Formnya(
-              controller: skalacontroller,
-              height: 40,
-            ),
-            Formnya(
               controller: biayacontroller,
               height: 40,
+              hinttext: "Biaya Pendaftaran",
+            ),
+            Formnya(
+              controller: tanggalcontroller,
+              height: 40,
+              hinttext: "Tanggal Pelaksanaan",
+            ),
+            SizedBox(
+              height: 15,
+              child: Text("Upload Poster"),
             ),
             UploadPhoto(),
             SizedBox(

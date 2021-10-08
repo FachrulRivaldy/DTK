@@ -89,6 +89,9 @@ class PokokBahasan extends StatelessWidget {
                   )
                 ],
               ),
+              SizedBox(
+                height: 5,
+              ),
               Expanded(
                   child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -145,14 +148,19 @@ class Pustaka extends StatelessWidget {
                   child: ListView.builder(
                       itemCount: 2,
                       itemBuilder: (context, index) {
-                        return Container(
-                          padding: EdgeInsets.all(8),
-                          width: 250,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: Colors.lightBlue,
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            width: 250,
+                            height: 35,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
+                              color: Colors.lightBlue,
+                            ),
+                            child: Text("JUDUL BUKU DAN PENGARANG"),
                           ),
-                          child: Text("JUDUL BUKU DAN PENGARANG"),
                         );
                       }),
                 ),
