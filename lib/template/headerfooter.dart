@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
                       width: 75,
                     ),
                     Text(
-                      "MAHASISWA",
+                      "ADMIN",
                       style: TextStyle(fontSize: 11),
                     )
                   ],
@@ -45,10 +45,6 @@ class Header extends StatelessWidget {
                   "07211940000032",
                   style: TextStyle(fontSize: 11),
                 ),
-                Text(
-                  "SEMESTER 5",
-                  style: TextStyle(fontSize: 11),
-                )
               ],
             )
           ])),
