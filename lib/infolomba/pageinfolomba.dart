@@ -1,3 +1,4 @@
+import 'package:dtk_database_tekkom/infolomba/databanklomba.dart';
 import 'package:dtk_database_tekkom/infolomba/formlomba.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -49,7 +50,7 @@ class InfoLomba extends StatelessWidget {
           iconArrow: "Left",
           plus: FormLomba(),
           back: MainMenu(),
-          store: MainMenu(),
+          store: DatabankLomba(),
         )
       ])),
     );

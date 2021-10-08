@@ -165,6 +165,8 @@ class YellowInfo extends StatelessWidget {
   final String skalalomba;
   final int harga;
   final harganya = new NumberFormat.simpleCurrency(locale: 'id_ID');
+  final double width;
+  final double height;
 
   YellowInfo(
       {required this.poster,
@@ -172,7 +174,9 @@ class YellowInfo extends StatelessWidget {
       required this.penyelenggaralomba,
       required this.skalalomba,
       required this.tanggal,
-      required this.harga});
+      required this.harga,
+      this.height = 550,
+      this.width = 350});
 
   @override
   Widget build(BuildContext context) {
@@ -188,8 +192,8 @@ class YellowInfo extends StatelessWidget {
                     type: MaterialType.transparency,
                     child: Container(
                       color: Colors.yellow,
-                      height: 550,
-                      width: 350,
+                      height: height,
+                      width: width,
                       child: Padding(
                         padding: const EdgeInsets.all(15),
                         child: Container(
@@ -203,16 +207,16 @@ class YellowInfo extends StatelessWidget {
         },
         child: Container(
           color: Colors.yellow,
-          height: 130,
-          width: 350,
+          height: height - 420,
+          width: width,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 100,
-                  width: 75,
+                  height: height - 450,
+                  width: width - 275,
                   color: Colors.blue,
                 ),
                 Column(

@@ -33,13 +33,35 @@ class DatabankLomba extends StatelessWidget {
           child: ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) {
-                return YellowInfo(
-                    poster: "",
-                    namalomba: "MAGE 7",
-                    penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                    skalalomba: "NASIONAL",
-                    tanggal: "5 OKTOBER 2021",
-                    harga: 100000);
+                return Row(
+                  children: [
+                    YellowInfo(
+                      poster: "",
+                      namalomba: "MAGE 7",
+                      penyelenggaralomba: "TEKNIK KOMPUTER ITS",
+                      skalalomba: "NASIONAL",
+                      tanggal: "5 OKTOBER 2021",
+                      harga: 100000,
+                      width: 325,
+                    ),
+                    Container(
+                        width: 25,
+                        height: 25,
+                        decoration: BoxDecoration(color: Colors.green),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => InfoLomba()));
+                          },
+                          child: Icon(
+                            Icons.checklist,
+                            color: Colors.black,
+                          ),
+                        ))
+                  ],
+                );
               })),
       Container(
           margin: EdgeInsets.only(bottom: 5),
