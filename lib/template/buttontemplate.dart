@@ -178,32 +178,56 @@ class YellowInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10, left: 15, right: 15),
-      child: Container(
-        color: Colors.yellow,
-        height: 130,
-        width: 350,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                height: 100,
-                width: 75,
-                color: Colors.blue,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Nama : " + namalomba),
-                  Text("Penyelenggara : " + penyelenggaralomba),
-                  Text("Skala : " + skalalomba),
-                  Text("Tanggal : " + tanggal),
-                  Text("Harga : " + harganya.format(harga))
-                ],
-              )
-            ],
+      child: GestureDetector(
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return Center(
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: Container(
+                      color: Colors.yellow,
+                      height: 550,
+                      width: 350,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Container(
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              });
+        },
+        child: Container(
+          color: Colors.yellow,
+          height: 130,
+          width: 350,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 100,
+                  width: 75,
+                  color: Colors.blue,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Nama : " + namalomba),
+                    Text("Penyelenggara : " + penyelenggaralomba),
+                    Text("Skala : " + skalalomba),
+                    Text("Tanggal : " + tanggal),
+                    Text("Harga : " + harganya.format(harga))
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
