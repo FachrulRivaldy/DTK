@@ -89,14 +89,12 @@ class FormPrestasi extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                height: 5,
-              ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Formnya(
                   controller: judulprestasi,
                   height: 35,
+                  hinttext: "Judul Prestasi",
                 ),
               ),
               Row(
@@ -106,6 +104,7 @@ class FormPrestasi extends StatelessWidget {
                   InputAnggota(
                     controller: namaanggota1,
                     height: 35,
+                    hinttext: "Nama Anggota 1",
                   ),
                 ],
               ),
@@ -116,6 +115,7 @@ class FormPrestasi extends StatelessWidget {
                   InputAnggota(
                     controller: namaanggota2,
                     height: 35,
+                    hinttext: "Nama Anggota 2",
                   ),
                 ],
               ),
@@ -126,6 +126,7 @@ class FormPrestasi extends StatelessWidget {
                   InputAnggota(
                     controller: namaanggota3,
                     height: 35,
+                    hinttext: "Nama Anggota 3",
                   ),
                 ],
               ),
@@ -136,6 +137,7 @@ class FormPrestasi extends StatelessWidget {
                   InputAnggota(
                     controller: namaanggota4,
                     height: 35,
+                    hinttext: "Nama Anggota 4",
                   ),
                 ],
               ),
@@ -146,6 +148,7 @@ class FormPrestasi extends StatelessWidget {
                   InputAnggota(
                     controller: namaanggota5,
                     height: 35,
+                    hinttext: "Nama Anggota 5",
                   ),
                 ],
               ),

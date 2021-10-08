@@ -34,15 +34,11 @@ class PrestasiATK extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView(children: [
-                DataPrestasi(
-                  namalomba: "JUARA 1 KRTI",
-                ),
-                DataPrestasi(
-                  namalomba: "JUARA 1 MAGE 7",
-                )
-              ]),
-            ),
+                child: ListView.builder(
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return DataPrestasi(namalomba: "JUARA 1 LOMBA A");
+                    })),
             Container(
               height: 125,
               child: Row(
@@ -71,6 +67,11 @@ class DataPrestasi extends StatelessWidget {
   final String fotoanggota3;
   final String fotoanggota4;
   final String fotoanggota5;
+  final String namaanggota1;
+  final String namaanggota2;
+  final String namaanggota3;
+  final String namaanggota4;
+  final String namaanggota5;
 
   DataPrestasi({
     required this.namalomba,
@@ -79,6 +80,11 @@ class DataPrestasi extends StatelessWidget {
     this.fotoanggota3 = '',
     this.fotoanggota4 = '',
     this.fotoanggota5 = '',
+    this.namaanggota1 = 'Anggota 1',
+    this.namaanggota2 = 'Anggota 2',
+    this.namaanggota3 = 'Anggota 3',
+    this.namaanggota4 = 'Anggota 4',
+    this.namaanggota5 = 'Anggota 5',
   });
 
   @override
@@ -99,55 +105,80 @@ class DataPrestasi extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black),
-                          image: DecorationImage(
-                              image: NetworkImage(fotoanggota1))),
+                    Column(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.black),
+                              image: DecorationImage(
+                                  image: NetworkImage(fotoanggota1))),
+                        ),
+                        Text(namaanggota1)
+                      ],
                     ),
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black),
-                          image: DecorationImage(
-                              image: NetworkImage(fotoanggota2))),
+                    Column(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.black),
+                              image: DecorationImage(
+                                  image: NetworkImage(fotoanggota2))),
+                        ),
+                        Text(namaanggota2)
+                      ],
                     ),
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black),
-                          image: DecorationImage(
-                              image: NetworkImage(fotoanggota3))),
+                    Column(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.black),
+                              image: DecorationImage(
+                                  image: NetworkImage(fotoanggota3))),
+                        ),
+                        Text(namaanggota3)
+                      ],
                     )
                   ],
                 ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.black),
-                            image: DecorationImage(
-                                image: NetworkImage(fotoanggota4))),
+                      Column(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.black),
+                                image: DecorationImage(
+                                    image: NetworkImage(fotoanggota4))),
+                          ),
+                          Text(namaanggota4)
+                        ],
                       ),
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.black),
-                            image: DecorationImage(
-                                image: NetworkImage(fotoanggota5))),
+                      Column(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.black),
+                                image: DecorationImage(
+                                    image: NetworkImage(fotoanggota5))),
+                          ),
+                          Text(namaanggota5)
+                        ],
                       )
                     ]),
               ])),

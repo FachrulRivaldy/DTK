@@ -105,10 +105,12 @@ class KolomFormInfo extends StatelessWidget {
             Formnya(
               controller: namacontroller,
               height: 40,
+              hinttext: "Nama Webinar",
             ),
             Formnya(
               controller: penyelenggaracontroller,
               height: 40,
+              hinttext: "Penyelenggara Webinar",
             ),
             Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,12 +146,18 @@ class KolomFormInfo extends StatelessWidget {
                   ),
                 ]),
             Formnya(
-              controller: skalacontroller,
-              height: 40,
-            ),
-            Formnya(
               controller: biayacontroller,
               height: 40,
+              hinttext: "Biaya Pendaftaran",
+            ),
+            Formnya(
+              controller: tanggalcontroller,
+              height: 40,
+              hinttext: "Tanggal Pelaksanaan",
+            ),
+            SizedBox(
+              child: Text("Upload Poster"),
+              height: 15,
             ),
             UploadPhoto(),
             SizedBox(

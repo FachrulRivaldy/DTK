@@ -1,5 +1,5 @@
-import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
 import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
+import 'package:dtk_database_tekkom/infoworkshop/pageinfoworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -54,7 +54,9 @@ class FormWorkshop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   LongButton(
-                      hinttext: "Back", iconArrow: "Left", dest: InfoLomba()),
+                      hinttext: "Back",
+                      iconArrow: "Left",
+                      dest: InfoWorkshop()),
                   LongButton(
                       hinttext: "Submit",
                       iconArrow: "None",
@@ -94,78 +96,85 @@ class KolomFormInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        height: 450,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15), color: Colors.yellow),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Formnya(
-              controller: namacontroller,
-              height: 40,
-            ),
-            Formnya(
-              controller: matericontroller,
-              height: 40,
-            ),
-            Formnya(
-              controller: penyelenggaracontroller,
-              height: 40,
-            ),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('Skala'),
-                  InputDecorator(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      contentPadding: EdgeInsets.all(10),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        value: skala,
-                        isDense: true,
-                        isExpanded: true,
-                        dropdownColor: Colors.white,
-                        items: [
-                          DropdownMenuItem(
-                              child: Text("Pilih Skala Workshop"), value: ""),
-                          DropdownMenuItem(
-                              child: Text("Nasional"), value: "Nasional"),
-                          DropdownMenuItem(
-                              child: Text("Internasional"),
-                              value: "Internasional"),
-                        ],
-                        onChanged: (value) {
-                          skala = value;
-                        },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          height: 450,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15), color: Colors.yellow),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Formnya(
+                controller: namacontroller,
+                height: 30,
+                hinttext: "Nama Workshop",
+              ),
+              Formnya(
+                controller: matericontroller,
+                height: 30,
+                hinttext: "Materi Workshop",
+              ),
+              Formnya(
+                controller: penyelenggaracontroller,
+                height: 30,
+                hinttext: "Penyelenggara Workshop",
+              ),
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Skala'),
+                    InputDecorator(
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0)),
+                        contentPadding: EdgeInsets.all(10),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          value: skala,
+                          isDense: true,
+                          isExpanded: true,
+                          dropdownColor: Colors.white,
+                          items: [
+                            DropdownMenuItem(
+                                child: Text("Skala Workshop"), value: ""),
+                            DropdownMenuItem(
+                                child: Text("Nasional"), value: "Nasional"),
+                            DropdownMenuItem(
+                                child: Text("Internasional"),
+                                value: "Internasional"),
+                          ],
+                          onChanged: (value) {
+                            skala = value;
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ]),
-            Formnya(
-              controller: biayacontroller,
-              height: 40,
-            ),
-            Formnya(
-              controller: tanggalcontroller,
-              height: 40,
-            ),
-            UploadPhoto(),
-            SizedBox(
-              height: 25,
-            )
-          ],
+                  ]),
+              Formnya(
+                controller: biayacontroller,
+                height: 30,
+                hinttext: "Biaya Pendaftaran",
+              ),
+              Formnya(
+                controller: tanggalcontroller,
+                height: 30,
+                hinttext: "Tanggal Pelaksanaan",
+              ),
+              SizedBox(
+                child: Text("Upload Poster"),
+                height: 15,
+              ),
+              UploadPhoto(),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
