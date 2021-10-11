@@ -4,7 +4,12 @@ import 'package:dtk_database_tekkom/mainpage/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController nrpcontroller = TextEditingController(text: '');
@@ -42,13 +47,18 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class StackContainer extends StatelessWidget {
+class StackContainer extends StatefulWidget {
   final TextEditingController nrpcontroller;
   final TextEditingController passwordcontroller;
 
   StackContainer(
       {required this.nrpcontroller, required this.passwordcontroller});
 
+  @override
+  _StackContainerState createState() => _StackContainerState();
+}
+
+class _StackContainerState extends State<StackContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,14 +85,14 @@ class StackContainer extends StatelessWidget {
             height: 15,
           ),
           Formnya(
-            controller: nrpcontroller,
+            controller: widget.nrpcontroller,
             hinttext: "NRP",
           ),
           SizedBox(
             height: 15,
           ),
           Formnya(
-            controller: passwordcontroller,
+            controller: widget.passwordcontroller,
             hinttext: "Password",
           ),
           SizedBox(

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dtk_database_tekkom/infolomba/databanklomba.dart';
 import 'package:dtk_database_tekkom/infolomba/formlomba.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
@@ -34,6 +35,34 @@ class InfoLomba extends StatelessWidget {
           ),
         ),
         Expanded(
+          child: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('databaselomba')
+                .snapshots(),
+            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              return Expanded(
+                  child: ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        var namalomba = snapshot.data!.docs[index]['Nama'];
+                        var penyelenggaralomba =
+                            snapshot.data!.docs[index]['Penyelenggara'];
+                        var skalalomba = snapshot.data!.docs[index]['Skala'];
+                        var tanggal = snapshot.data!.docs[index]['Tanggal'];
+                        var harga = snapshot.data!.docs[index]['Harga'];
+                        return YellowInfo(
+                            poster: "",
+                            namalomba: namalomba,
+                            penyelenggaralomba: penyelenggaralomba,
+                            skalalomba: skalalomba,
+                            tanggal: tanggal,
+                            harga: harga);
+                      }));
+            },
+          ),
+        ),
+
+        /*Expanded(
             child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
@@ -44,7 +73,7 @@ class InfoLomba extends StatelessWidget {
                       skalalomba: "NASIONAL",
                       tanggal: "5 OKTOBER 2021",
                       harga: 100000);
-                })),
+                })),*/
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",
