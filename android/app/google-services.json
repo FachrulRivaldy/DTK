@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62510036401",
+    "project_id": "dtk-database-teknik-komputer",
+    "storage_bucket": "dtk-database-teknik-komputer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62510036401:android:be743071ca0d41ca833990",
+        "android_client_info": {
+          "package_name": "com.example.dtk_database_tekkom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62510036401-nfd2r48oqo1egme46837a6kq4nguvg7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe3ldLI6CzWMS6zi4qHRN9uBz5YhlHl6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62510036401-nfd2r48oqo1egme46837a6kq4nguvg7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
