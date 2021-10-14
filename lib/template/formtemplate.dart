@@ -29,21 +29,22 @@ class Formnya extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(50)),*/
     return TextFormField(
-        style: TextStyle(
-          color: textcolor,
-          fontSize: fontsize,
-          fontWeight: fontweight,
-        ),
-        controller: controller,
-        obscureText: isobscure,
-        maxLines: 1,
-        decoration: InputDecoration(
-            fillColor: Colors.white,
-            filled: true,
-            labelText: hinttext,
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(50)))); //,
+      style: TextStyle(
+        color: textcolor,
+        fontSize: fontsize,
+        fontWeight: fontweight,
+      ),
+      controller: controller,
+      obscureText: isobscure,
+      maxLines: 1,
+      decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          labelText: hinttext,
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(50))),
+    ); //,
     //);
   }
 }

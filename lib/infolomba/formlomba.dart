@@ -141,6 +141,7 @@ class KolomFormInfo extends StatelessWidget {
                         ],
                         onChanged: (value) {
                           skala = value;
+                          print(skala);
                         },
                       ),
                     ),
