@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Formnya extends StatelessWidget {
   final String hinttext;
   final bool isobscure;
@@ -8,7 +9,7 @@ class Formnya extends StatelessWidget {
   final FontWeight fontweight;
   final double height;
 
-  const Formnya({
+  Formnya({
     required this.controller,
     this.hinttext = '',
     this.isobscure = false,
@@ -18,7 +19,11 @@ class Formnya extends StatelessWidget {
     this.height = 50,
   });
 
-  final TextEditingController controller;
+  TextEditingController controller;
+
+  sendData(controller) {
+    this.controller = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +49,7 @@ class Formnya extends StatelessWidget {
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
               borderRadius: BorderRadius.circular(50))),
+      onChanged: (String controller) {},
     ); //,
     //);
   }
