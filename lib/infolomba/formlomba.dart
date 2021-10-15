@@ -10,12 +10,12 @@ import 'package:flutter/material.dart';
 class FormLomba extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    TextEditingController namacontroller = TextEditingController(text: '');
+    /*TextEditingController namacontroller = TextEditingController(text: '');
     TextEditingController penyelenggaracontroller =
         TextEditingController(text: '');
     TextEditingController skalacontroller = TextEditingController(text: '');
     TextEditingController biayacontroller = TextEditingController(text: '');
-    TextEditingController tanggalcontroller = TextEditingController(text: '');
+    TextEditingController tanggalcontroller = TextEditingController(text: '');*/
 
     return SafeArea(
       child: Scaffold(
@@ -42,12 +42,7 @@ class FormLomba extends StatelessWidget {
                 ],
               ),
             ),
-            KolomFormInfo(
-                namacontroller: namacontroller,
-                penyelenggaracontroller: penyelenggaracontroller,
-                skalacontroller: skalacontroller,
-                biayacontroller: biayacontroller,
-                tanggalcontroller: tanggalcontroller),
+            KolomFormInfo(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Row(
@@ -75,21 +70,29 @@ class FormLomba extends StatelessWidget {
 
 // ignore: must_be_immutable
 class KolomFormInfo extends StatelessWidget {
-  final TextEditingController namacontroller;
+  /*final TextEditingController namacontroller;
   final TextEditingController penyelenggaracontroller;
   final TextEditingController skalacontroller;
   final TextEditingController biayacontroller;
-  final TextEditingController tanggalcontroller;
+  final TextEditingController tanggalcontroller;*/
   String? skala;
+  String? nama;
+  String? penyelenggara;
+  String? tanggal;
+  String? harga;
   //final TextEditingController postercontroller;
 
   KolomFormInfo({
-    required this.namacontroller,
+    /*required this.namacontroller,
     required this.penyelenggaracontroller,
     required this.skalacontroller,
     required this.biayacontroller,
-    required this.tanggalcontroller,
+    required this.tanggalcontroller,*/
     this.skala = '',
+    this.nama = '',
+    this.penyelenggara = '',
+    this.tanggal = '',
+    this.harga = '',
     //required this.postercontroller
   });
 
@@ -109,13 +112,13 @@ class KolomFormInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FieldLombaString(
-              controller: namacontroller,
+              isianform: nama,
               height: 40,
               hinttext: "Nama",
               destination: ControllerName.isinamalomba,
             ),
             FieldLombaString(
-              controller: penyelenggaracontroller,
+              isianform: penyelenggara,
               height: 40,
               hinttext: "Penyelenggara",
               destination: ControllerName.isipenyelenggara,
@@ -140,7 +143,7 @@ class KolomFormInfo extends StatelessWidget {
                         dropdownColor: Colors.white,
                         items: [
                           DropdownMenuItem(
-                              child: Text("Pilih Skala Lomba"), value: ""),
+                              child: Text("Pilih Skala lomba"), value: ""),
                           DropdownMenuItem(
                               child: Text("Nasional"), value: "Nasional"),
                           DropdownMenuItem(
@@ -156,13 +159,13 @@ class KolomFormInfo extends StatelessWidget {
                   ),
                 ]),
             FieldLombaString(
-              controller: biayacontroller,
+              isianform: harga,
               height: 40,
               hinttext: "Biaya Pendaftaran",
               destination: ControllerName.isiharga,
             ),
             FieldLombaString(
-              controller: tanggalcontroller,
+              isianform: tanggal,
               height: 40,
               hinttext: "Tanggal Pelaksanaan",
               destination: ControllerName.isitanggal,
@@ -183,7 +186,7 @@ class KolomFormInfo extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class FieldLombaString extends StatelessWidget {
+class FieldLombaStringa extends StatelessWidget {
   final String hinttext;
   final bool isobscure;
   final Color textcolor;
@@ -193,7 +196,7 @@ class FieldLombaString extends StatelessWidget {
   var destination;
   var isianform;
 
-  FieldLombaString({
+  FieldLombaStringa({
     required this.controller,
     required this.destination,
     this.hinttext = '',
@@ -237,6 +240,58 @@ class FieldLombaString extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
+class FieldLombaString extends StatelessWidget {
+  final String hinttext;
+  final bool isobscure;
+  final Color textcolor;
+  final double fontsize;
+  final FontWeight fontweight;
+  final double height;
+  var destination;
+  var isianform;
+
+  FieldLombaString({
+    required this.destination,
+    required this.isianform,
+    this.hinttext = '',
+    this.isobscure = false,
+    this.fontsize = 14,
+    this.textcolor = Colors.black,
+    this.fontweight = FontWeight.normal,
+    this.height = 50,
+  });
+
+  createData(isianform) {
+    this.destination = isianform;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      style: TextStyle(
+        color: textcolor,
+        fontSize: fontsize,
+        fontWeight: fontweight,
+      ),
+      obscureText: isobscure,
+      maxLines: 1,
+      decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          labelText: hinttext,
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(50))),
+      onChanged: (String value) {
+        isianform = value;
+        createData(isianform);
+      },
+    ); //,
+    //);
+  }
+}
+
 class SubmitLomba extends StatelessWidget {
   final String hinttext;
   final String iconArrow;
@@ -257,7 +312,7 @@ class SubmitLomba extends StatelessWidget {
         .doc(ControllerName.isinamalomba);
 
     // ignore: unnecessary_statements
-    Map<String, dynamic> Lomba = {
+    Map<String, dynamic> lomba = {
       "Nama": ControllerName.isinamalomba,
       "Penyelenggara": ControllerName.isipenyelenggara,
       "Skala": ControllerName.isiskala,
@@ -265,7 +320,7 @@ class SubmitLomba extends StatelessWidget {
       "Harga": ControllerName.isiharga,
     };
 
-    documentReference.set(Lomba).whenComplete(() {
+    documentReference.set(lomba).whenComplete(() {
       print("$ControllerName.isinamalomba created");
     });
   }
