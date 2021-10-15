@@ -1,6 +1,7 @@
 import 'package:dtk_database_tekkom/infoworkshop/pageinfoworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class DatabankWorkshop extends StatelessWidget {
@@ -30,39 +31,56 @@ class DatabankWorkshop extends StatelessWidget {
         ),
       ),
       Expanded(
-          child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    YellowInfo(
-                      poster: "",
-                      namalomba: "MAGE 7",
-                      penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                      skalalomba: "NASIONAL",
-                      tanggal: "5 OKTOBER 2021",
-                      harga: 100000,
-                      width: 325,
-                    ),
-                    Container(
-                        width: 25,
-                        height: 25,
-                        decoration: BoxDecoration(color: Colors.green),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => InfoWorkshop()));
-                          },
-                          child: Icon(
-                            Icons.checklist,
-                            color: Colors.black,
-                          ),
-                        ))
-                  ],
-                );
-              })),
+        child: StreamBuilder(
+          stream: FirebaseFirestore.instance
+              .collection("databankworkshop")
+              .snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return Scaffold();
+            } else {
+              return Expanded(
+                  child: ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        DocumentSnapshot documentSnapshot =
+                            snapshot.data!.docs[index];
+                        return Row(
+                          children: [
+                            CardWorkshop(
+                                width: 320,
+                                posterworkshop: "",
+                                namaworkshop: documentSnapshot["Nama"],
+                                penyelenggaraworkshop:
+                                    documentSnapshot["Penyelenggara"],
+                                skalaworkshop: documentSnapshot["Skala"],
+                                tanggalworkshop: documentSnapshot["Tanggal"],
+                                hargaworkshop: documentSnapshot["Harga"]),
+                            Container(
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(color: Colors.green),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => InfoWorkshop()),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.checklist,
+                                    color: Colors.black,
+                                  ),
+                                ))
+                          ],
+                        );
+                      }));
+            }
+          },
+        ),
+      ),
       Container(
           margin: EdgeInsets.only(bottom: 5),
           height: 100,

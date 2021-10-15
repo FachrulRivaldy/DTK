@@ -141,7 +141,6 @@ class CardLomba extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 Container(
-                  color: Colors.red,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,

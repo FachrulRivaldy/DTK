@@ -58,24 +58,24 @@ class InfoWorkshop extends StatelessWidget {
   }
 }
 
-class CardLomba extends StatelessWidget {
-  final String poster;
-  final String namalomba;
-  final String penyelenggaralomba;
-  final String tanggal;
-  final String skalalomba;
-  final int harga;
+class CardWorkshop extends StatelessWidget {
+  final String posterworkshop;
+  final String namaworkshop;
+  final String penyelenggaraworkshop;
+  final String tanggalworkshop;
+  final String skalaworkshop;
+  final int hargaworkshop;
   final harganya = new NumberFormat.simpleCurrency(locale: 'id_ID');
   final double width;
   final double height;
 
-  CardLomba(
-      {required this.poster,
-      required this.namalomba,
-      required this.penyelenggaralomba,
-      required this.skalalomba,
-      required this.tanggal,
-      required this.harga,
+  CardWorkshop(
+      {required this.posterworkshop,
+      required this.namaworkshop,
+      required this.penyelenggaraworkshop,
+      required this.skalaworkshop,
+      required this.tanggalworkshop,
+      required this.hargaworkshop,
       this.height = 550,
       this.width = 350});
 
@@ -122,22 +122,21 @@ class CardLomba extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 Container(
-                  color: Colors.red,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Nama : " + namalomba,
+                        "Nama : " + namaworkshop,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Text("Penyelenggara : " + penyelenggaralomba,
+                      Text("Penyelenggara : " + penyelenggaraworkshop,
                           overflow: TextOverflow.ellipsis),
-                      Text("Skala : " + skalalomba,
+                      Text("Skala : " + skalaworkshop,
                           overflow: TextOverflow.ellipsis),
-                      Text("Tanggal : " + tanggal,
+                      Text("Tanggal : " + tanggalworkshop,
                           overflow: TextOverflow.ellipsis),
-                      Text("Harga : " + harganya.format(harga),
+                      Text("Harga : " + harganya.format(hargaworkshop),
                           overflow: TextOverflow.ellipsis)
                     ],
                   ),
