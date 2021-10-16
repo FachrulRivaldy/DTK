@@ -6,6 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class DatabankLomba extends StatelessWidget {
+  deleteData() {
+    Future<void> documentReference =
+        FirebaseFirestore.instance.collection("databanklomba").doc("").delete();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +75,7 @@ class DatabankLomba extends StatelessWidget {
                                       MaterialPageRoute(
                                           builder: (context) => InfoLomba()),
                                     );
+                                    documentSnapshot;
                                   },
                                   child: Icon(
                                     Icons.checklist,

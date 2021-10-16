@@ -15,6 +15,7 @@ class SignUp extends StatelessWidget {
         TextEditingController(text: '');
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Center(

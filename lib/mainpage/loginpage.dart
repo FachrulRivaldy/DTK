@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController passwordcontroller = TextEditingController(text: '');
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Column(
@@ -63,6 +64,7 @@ class _StackContainerState extends State<StackContainer> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+      height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: Colors.blue,

@@ -14,48 +14,52 @@ class TambahPrestasi extends StatelessWidget {
     TextEditingController namaanggota4 = TextEditingController(text: '');
     TextEditingController namaanggota5 = TextEditingController(text: '');
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
-      child: Column(
-        children: [
-          Header(),
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-            width: 350,
-            height: 35,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(45), color: Colors.blue),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "TAMBAH DATA PRESTASI",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          FormPrestasi(
-              judulprestasi: judulprestasi,
-              namaanggota1: namaanggota1,
-              namaanggota2: namaanggota2,
-              namaanggota3: namaanggota3,
-              namaanggota4: namaanggota4,
-              namaanggota5: namaanggota5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Column(
             children: [
-              LongButton(
-                  hinttext: "Back", iconArrow: "Left", dest: PrestasiATK()),
-              LongButton(
-                  hinttext: "Submit", iconArrow: "None", dest: PrestasiATK())
+              Header(),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 350,
+                height: 35,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(45),
+                    color: Colors.blue),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "TAMBAH DATA PRESTASI",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              FormPrestasi(
+                  judulprestasi: judulprestasi,
+                  namaanggota1: namaanggota1,
+                  namaanggota2: namaanggota2,
+                  namaanggota3: namaanggota3,
+                  namaanggota4: namaanggota4,
+                  namaanggota5: namaanggota5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  LongButton(
+                      hinttext: "Back", iconArrow: "Left", dest: PrestasiATK()),
+                  LongButton(
+                      hinttext: "Submit",
+                      iconArrow: "None",
+                      dest: PrestasiATK())
+                ],
+              )
             ],
-          )
-        ],
-      ),
-    ));
+          ),
+        ));
   }
 }
 
