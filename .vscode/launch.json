@@ -8,7 +8,7 @@
             "name": "dtk_database_tekkom",
             "request": "launch",
             "type": "dart",
-            "program": "lib/mainpage/main.dart"
+            "program": "lib/main.dart"
         },
         {
             "name": "dtk_database_tekkom (profile mode)",

@@ -68,43 +68,12 @@ class PokokBahasan extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "POKOK BAHASAN",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  SizedBox(
-                    width: 75,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return Center(
-                              child: Material(
-                                type: MaterialType.transparency,
-                                child: Container(
-                                  color: Colors.yellow,
-                                  height: 150,
-                                  width: 350,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(15),
-                                    child: Container(
-                                      color: Colors.lightBlue,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          });
-                    },
-                    child: Icon(
-                      Icons.edit,
-                      color: Colors.black,
-                    ),
-                  )
                 ],
               ),
               SizedBox(
@@ -156,44 +125,13 @@ class Pustaka extends StatelessWidget {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "PUSTAKA",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                    SizedBox(
-                      width: 100,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return Center(
-                                child: Material(
-                                  type: MaterialType.transparency,
-                                  child: Container(
-                                    color: Colors.yellow,
-                                    height: 150,
-                                    width: 350,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(15),
-                                      child: Container(
-                                        color: Colors.lightBlue,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
-                      },
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.black,
-                      ),
-                    )
                   ],
                 ),
                 SizedBox(
@@ -225,3 +163,21 @@ class Pustaka extends StatelessWidget {
         ));
   }
 }
+
+List pokok = [
+  'Sistem Bilangan',
+  'Operator',
+  'Algoritma Komputer',
+  'Pengulangan',
+  'Flowchart',
+  'Bahasa C',
+  'Array',
+  'Fungsi',
+  'Tipe Data',
+];
+
+List pustaka = [
+  'Discovering Computers Fundamentals 8th Edition',
+  'Introduction to Algorithms 3th Edition',
+  'The C Programming Language',
+];

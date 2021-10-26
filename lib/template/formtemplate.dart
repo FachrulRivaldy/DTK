@@ -27,12 +27,6 @@ class Formnya extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25),
-      width: MediaQuery.of(context).size.width,
-      height: height,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(50)),*/
     return TextFormField(
       style: TextStyle(
         color: textcolor,

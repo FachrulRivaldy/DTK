@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "MUHAMAMD FACHRUL RIVALDY",
+                      "MUHAMMAD FACHRUL RIVALDY",
                       style: TextStyle(fontSize: 11),
                     ),
                     SizedBox(

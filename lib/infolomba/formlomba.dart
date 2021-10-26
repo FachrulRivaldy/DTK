@@ -40,7 +40,7 @@ class _FormLombaState extends State<FormLomba> {
     print("Data Created");
 
     DocumentReference documentReference =
-        FirebaseFirestore.instance.collection("databanklomba").doc(namaLomba);
+        FirebaseFirestore.instance.collection("databaselomba").doc(namaLomba);
 
     // create Map
     Map<String, dynamic> lomba = {
@@ -49,6 +49,8 @@ class _FormLombaState extends State<FormLomba> {
       "Skala": skalaLomba,
       "Tanggal": tanggalLomba,
       "Harga": hargaLomba,
+      "Publish": false,
+      "Poster": '',
     };
 
     documentReference.set(lomba).whenComplete(() {

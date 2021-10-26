@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
 import 'package:dtk_database_tekkom/infoworkshop/formworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
@@ -6,9 +7,14 @@ import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-class InfoWorkshop extends StatelessWidget {
+class InfoWorkshop extends StatefulWidget {
   const InfoWorkshop({Key? key}) : super(key: key);
 
+  @override
+  _InfoWorkshopState createState() => _InfoWorkshopState();
+}
+
+class _InfoWorkshopState extends State<InfoWorkshop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +41,53 @@ class InfoWorkshop extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return YellowInfo(
-                      poster: "",
-                      namalomba: "MAGE 7",
-                      penyelenggaralomba: "TEKNIK KOMPUTER ITS",
-                      skalalomba: "NASIONAL",
-                      tanggal: "5 OKTOBER 2021",
-                      harga: 100000);
-                })),
+          child: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection("databaseworkshop")
+                .where('Publish', isEqualTo: true)
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return Scaffold();
+              } else {
+                return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot documentSnapshot =
+                              snapshot.data!.docs[index];
+
+                          return Dismissible(
+                            key: Key(documentSnapshot["Nama"]),
+                            direction: DismissDirection.endToStart,
+                            onDismissed: (direction) {
+                              setState(() {
+                                FirebaseFirestore.instance
+                                    .collection("databaseworkshop")
+                                    .doc(documentSnapshot["Nama"])
+                                    .delete();
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Item Deleted")));
+                            },
+                            background: Container(
+                              color: Colors.red,
+                            ),
+                            child: CardWorkshop(
+                                posterworkshop: "",
+                                namaworkshop: documentSnapshot["Nama"],
+                                penyelenggaraworkshop:
+                                    documentSnapshot["Penyelenggara"],
+                                skalaworkshop: documentSnapshot["Skala"],
+                                tanggalworkshop: documentSnapshot["Tanggal"],
+                                hargaworkshop: documentSnapshot["Harga"]),
+                          );
+                        }));
+              }
+            },
+          ),
+        ),
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",

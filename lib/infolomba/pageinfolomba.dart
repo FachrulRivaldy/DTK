@@ -7,9 +7,14 @@ import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class InfoLomba extends StatelessWidget {
+class InfoLomba extends StatefulWidget {
   const InfoLomba({Key? key}) : super(key: key);
 
+  @override
+  _InfoLombaState createState() => _InfoLombaState();
+}
+
+class _InfoLombaState extends State<InfoLomba> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +44,7 @@ class InfoLomba extends StatelessWidget {
           child: StreamBuilder(
             stream: FirebaseFirestore.instance
                 .collection("databaselomba")
+                .where('Publish', isEqualTo: true)
                 .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -52,14 +58,31 @@ class InfoLomba extends StatelessWidget {
                           DocumentSnapshot documentSnapshot =
                               snapshot.data!.docs[index];
 
-                          return CardLomba(
-                              poster: "",
-                              namalomba: documentSnapshot["Nama"],
-                              penyelenggaralomba:
-                                  documentSnapshot["Penyelenggara"],
-                              skalalomba: documentSnapshot["Skala"],
-                              tanggal: documentSnapshot["Tanggal"],
-                              harga: documentSnapshot["Harga"]);
+                          return Dismissible(
+                            key: Key(documentSnapshot["Nama"]),
+                            direction: DismissDirection.endToStart,
+                            onDismissed: (direction) {
+                              setState(() {
+                                FirebaseFirestore.instance
+                                    .collection("databaselomba")
+                                    .doc(documentSnapshot["Nama"])
+                                    .delete();
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Item Deleted")));
+                            },
+                            background: Container(
+                              color: Colors.red,
+                            ),
+                            child: CardLomba(
+                                poster: "",
+                                namalomba: documentSnapshot["Nama"],
+                                penyelenggaralomba:
+                                    documentSnapshot["Penyelenggara"],
+                                skalalomba: documentSnapshot["Skala"],
+                                tanggal: documentSnapshot["Tanggal"],
+                                harga: documentSnapshot["Harga"]),
+                          );
                         }));
               }
             },

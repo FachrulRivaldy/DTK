@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
-import 'package:dtk_database_tekkom/infowebinar/databankwebinar.dart';
+import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -16,7 +16,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
   int? hargaWorkshop;
   String iconArrow = "";
 
-  getNamaWebinar(nama) {
+  getNamaWorkshop(nama) {
     this.namaWorkshop = nama;
   }
 
@@ -32,7 +32,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
     this.tanggalWorkshop = tanggal;
   }
 
-  getHargaWebinar(harga) {
+  getHargaWorkshop(harga) {
     this.hargaWorkshop = int.parse(harga);
   }
 
@@ -40,7 +40,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
     print("Data Created");
 
     DocumentReference documentReference = FirebaseFirestore.instance
-        .collection("databankwebinar")
+        .collection("databaseworkshop")
         .doc(namaWorkshop);
 
     // create Map
@@ -50,6 +50,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
       "Skala": skalaWorkshop,
       "Tanggal": tanggalWorkshop,
       "Harga": hargaWorkshop,
+      "Publish": false,
     };
 
     documentReference.set(lomba).whenComplete(() {
@@ -113,7 +114,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(50))),
                       onChanged: (String? nama) {
-                        getNamaWebinar(nama);
+                        getNamaWorkshop(nama);
                       },
                     ),
                     TextFormField(
@@ -180,7 +181,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
                                 borderSide: BorderSide(color: Colors.white),
                                 borderRadius: BorderRadius.circular(50))),
                         onChanged: (harga) {
-                          getHargaWebinar(harga);
+                          getHargaWorkshop(harga);
                         }),
                     TextFormField(
                         style: TextStyle(
@@ -242,7 +243,7 @@ class _FormWorkshopState extends State<FormWorkshop> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DatabankWebinar()),
+                              builder: (context) => DatabankWorkshop()),
                         );
                         createData();
                       },

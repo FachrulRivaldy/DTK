@@ -1,11 +1,29 @@
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
+import 'package:dtk_database_tekkom/template/variabletemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 
+// ignore: must_be_immutable
 class PageSemester extends StatelessWidget {
-  const PageSemester({Key? key}) : super(key: key);
+  String semester1 = 'Semester 1';
+  String semester2 = 'Semester 2';
+  String semester3 = 'Semester 3';
+  String semester4 = 'Semester 4';
+  String semester5 = 'Semester 5';
+  String semester6 = 'Semester 6';
+  String semester7 = 'Semester 7';
+  String semester8 = 'Semester 8';
+
+  int sks1 = 28;
+  int sks2 = 18;
+  int sks3 = 18;
+  int sks4 = 18;
+  int sks5 = 28;
+  int sks6 = 47;
+  int sks7 = 33;
+  int sks8 = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +55,25 @@ class PageSemester extends StatelessWidget {
               child: ListView(
                 children: [
                   LongYellow(
-                      semester: "Semester 1", sks: 18, dest: PageMatkulSem()),
+                    semester: semester1,
+                    sks: sks1,
+                    dest: PageMatkulSem(),
+                    /*controller: ControlSemester.controlsem1*/
+                  ),
                   LongYellow(
-                      semester: "Semester 2", sks: 18, dest: PageMatkulSem()),
+                      semester: semester2, sks: sks2, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 3", sks: 18, dest: PageMatkulSem()),
+                      semester: semester3, sks: sks3, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 4", sks: 18, dest: PageMatkulSem()),
+                      semester: semester4, sks: sks4, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 5", sks: 18, dest: PageMatkulSem()),
+                      semester: semester5, sks: sks5, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 6", sks: 18, dest: PageMatkulSem()),
+                      semester: semester6, sks: sks6, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 7", sks: 18, dest: PageMatkulSem()),
+                      semester: semester7, sks: sks7, dest: PageMatkulSem()),
                   LongYellow(
-                      semester: "Semester 8", sks: 18, dest: PageMatkulSem()),
+                      semester: semester8, sks: sks8, dest: PageMatkulSem()),
                 ],
               ),
             ),

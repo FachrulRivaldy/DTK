@@ -5,6 +5,15 @@ import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:flutter/material.dart';
 
 class DatabankWebinar extends StatelessWidget {
+  final TextEditingController publishWebinar = TextEditingController();
+
+  validator() {
+    FirebaseFirestore.instance
+        .collection("databasewebinar")
+        .doc(publishWebinar.text)
+        .update({'Publish': true});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +42,8 @@ class DatabankWebinar extends StatelessWidget {
       Expanded(
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
-              .collection("databankwebinar")
+              .collection("databasewebinar")
+              .where('Publish', isEqualTo: false)
               .snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -46,36 +56,15 @@ class DatabankWebinar extends StatelessWidget {
                       itemBuilder: (context, index) {
                         DocumentSnapshot documentSnapshot =
                             snapshot.data!.docs[index];
-                        return Row(
-                          children: [
-                            CardWebinar(
-                                width: 320,
-                                posterwebinar: "",
-                                namawebinar: documentSnapshot["Nama"],
-                                penyelenggarawebinar:
-                                    documentSnapshot["Penyelenggara"],
-                                skalawebinar: documentSnapshot["Skala"],
-                                tanggalwebinar: documentSnapshot["Tanggal"],
-                                hargawebinar: documentSnapshot["Harga"]),
-                            Container(
-                                width: 25,
-                                height: 25,
-                                decoration: BoxDecoration(color: Colors.green),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => InfoWebinar()),
-                                    );
-                                  },
-                                  child: Icon(
-                                    Icons.checklist,
-                                    color: Colors.black,
-                                  ),
-                                ))
-                          ],
-                        );
+                        return CardWebinar(
+                            width: 320,
+                            posterwebinar: "",
+                            namawebinar: documentSnapshot["Nama"],
+                            penyelenggarawebinar:
+                                documentSnapshot["Penyelenggara"],
+                            skalawebinar: documentSnapshot["Skala"],
+                            tanggalwebinar: documentSnapshot["Tanggal"],
+                            hargawebinar: documentSnapshot["Harga"]);
                       }));
             }
           },
@@ -94,6 +83,142 @@ class DatabankWebinar extends StatelessWidget {
                   hinttext: "Back",
                   iconArrow: "Left",
                 ),
+                Container(
+                  alignment: Alignment.center,
+                  width: 103,
+                  height: 45,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18)))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Publish"),
+                        Icon(Icons.arrow_right),
+                      ],
+                    ),
+                    onPressed: () {
+                      /*Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => InfoLomba()))*/
+
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Center(
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: Container(
+                                  color: Colors.yellow,
+                                  height: 250,
+                                  width: 350,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child: Container(
+                                      color: Colors.lightBlue,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "Masukkan Nama Webinar",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Container(
+                                              height: 50,
+                                              child: TextFormField(
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                                controller: publishWebinar,
+                                                maxLines: 1,
+                                                decoration: InputDecoration(
+                                                    fillColor: Colors.white,
+                                                    filled: true,
+                                                    border: OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(50))),
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  width: 50,
+                                                  height: 50,
+                                                  child: ElevatedButton(
+                                                    child: Icon(Icons.add),
+                                                    onPressed: () {},
+                                                    style: ButtonStyle(
+                                                        shape: MaterialStateProperty.all<
+                                                                RoundedRectangleBorder>(
+                                                            RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18)))),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  alignment: Alignment.center,
+                                                  height: 50,
+                                                  width: 105,
+                                                  child: ElevatedButton(
+                                                    child: Row(
+                                                      children: [
+                                                        Text("Publish"),
+                                                        Icon(Icons.arrow_right),
+                                                      ],
+                                                    ),
+                                                    onPressed: () {
+                                                      validator();
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  InfoWebinar()));
+                                                    },
+                                                    style: ButtonStyle(
+                                                        shape: MaterialStateProperty.all<
+                                                                RoundedRectangleBorder>(
+                                                            RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18)))),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          });
+                    },
+                  ),
+                )
               ])),
     ])));
   }

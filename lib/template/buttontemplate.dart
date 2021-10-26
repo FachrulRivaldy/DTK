@@ -89,12 +89,14 @@ class LongYellow extends StatelessWidget {
   final int sks;
   final Color boxcolor;
   final Widget dest;
+  //final TextEditingController controller;
 
   LongYellow({
     required this.semester,
     this.boxcolor = const Color(0xFFEDD113),
     required this.sks,
     required this.dest,
+    //required this.controller,
   });
 
   @override
@@ -133,34 +135,6 @@ class LongYellow extends StatelessWidget {
                   ),
                 ],
               ),
-              InkWell(
-                onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return Center(
-                          child: Material(
-                            type: MaterialType.transparency,
-                            child: Container(
-                              color: Colors.yellow,
-                              height: 150,
-                              width: 350,
-                              child: Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Container(
-                                  color: Colors.lightBlue,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      });
-                },
-                child: Icon(
-                  Icons.edit,
-                  color: Colors.black,
-                ),
-              )
             ],
           ),
           onPressed: () {

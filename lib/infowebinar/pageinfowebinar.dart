@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dtk_database_tekkom/infowebinar/databankwebinar.dart';
 import 'package:dtk_database_tekkom/infowebinar/formwebinar.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
@@ -6,9 +7,14 @@ import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-class InfoWebinar extends StatelessWidget {
+class InfoWebinar extends StatefulWidget {
   const InfoWebinar({Key? key}) : super(key: key);
 
+  @override
+  _InfoWebinarState createState() => _InfoWebinarState();
+}
+
+class _InfoWebinarState extends State<InfoWebinar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +41,53 @@ class InfoWebinar extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return CardWebinar(
-                      posterwebinar: "",
-                      namawebinar: "MAGE 7",
-                      penyelenggarawebinar: "TEKNIK KOMPUTER ITS",
-                      skalawebinar: "NASIONAL",
-                      tanggalwebinar: "5 OKTOBER 2021",
-                      hargawebinar: 100000);
-                })),
+          child: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection("databasewebinar")
+                .where('Publish', isEqualTo: true)
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return Scaffold();
+              } else {
+                return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot documentSnapshot =
+                              snapshot.data!.docs[index];
+
+                          return Dismissible(
+                            key: Key(documentSnapshot["Nama"]),
+                            direction: DismissDirection.endToStart,
+                            onDismissed: (direction) {
+                              setState(() {
+                                FirebaseFirestore.instance
+                                    .collection("databasewebinar")
+                                    .doc(documentSnapshot["Nama"])
+                                    .delete();
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Item Deleted")));
+                            },
+                            background: Container(
+                              color: Colors.red,
+                            ),
+                            child: CardWebinar(
+                                posterwebinar: "",
+                                namawebinar: documentSnapshot["Nama"],
+                                penyelenggarawebinar:
+                                    documentSnapshot["Penyelenggara"],
+                                skalawebinar: documentSnapshot["Skala"],
+                                tanggalwebinar: documentSnapshot["Tanggal"],
+                                hargawebinar: documentSnapshot["Harga"]),
+                          );
+                        }));
+              }
+            },
+          ),
+        ),
         InfoBottomAdmin(
           hinttext: "Back",
           iconArrow: "Left",

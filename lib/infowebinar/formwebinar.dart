@@ -40,7 +40,7 @@ class _FormWebinarState extends State<FormWebinar> {
     print("Data Created");
 
     DocumentReference documentReference = FirebaseFirestore.instance
-        .collection("databankwebinar")
+        .collection("databasewebinar")
         .doc(namaWebinar);
 
     // create Map
@@ -50,6 +50,7 @@ class _FormWebinarState extends State<FormWebinar> {
       "Skala": skalaWebinar,
       "Tanggal": tanggalWebinar,
       "Harga": hargaWebinar,
+      "Publish": false,
     };
 
     documentReference.set(lomba).whenComplete(() {
