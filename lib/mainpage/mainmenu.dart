@@ -6,6 +6,7 @@ import 'package:dtk_database_tekkom/silabus/pagesemester.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class TopMainMenu extends StatelessWidget {
   @override
@@ -125,8 +126,34 @@ class MainMenu extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomLeft,
-                  child: LongButton(
-                      hinttext: "Logout", iconArrow: "Left", dest: LoginPage()),
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 105,
+                    height: 45,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18)))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(Icons.arrow_left),
+                          Text("Logout"),
+                        ],
+                      ),
+                      onPressed: () async {
+                        await signOut();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
+                      },
+                    ),
+                  ),
                 )
               ],
             ),
@@ -134,5 +161,13 @@ class MainMenu extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future signOut() async {
+    try {
+      return await FirebaseAuth.instance.signOut();
+    } catch (error) {}
+
+    print("Signed Out");
   }
 }

@@ -1,8 +1,9 @@
-import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 import 'package:dtk_database_tekkom/mainpage/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
+
+import 'listener.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -139,8 +140,38 @@ class _StackContainerState extends State<StackContainer> {
           ),
           Align(
               alignment: Alignment.bottomRight,
-              child: LongButton(
-                  hinttext: "Login", iconArrow: "Right", dest: MainMenu()))
+              child: Container(
+                alignment: Alignment.center,
+                width: 105,
+                height: 45,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18)))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Login"),
+                      Icon(Icons.arrow_right),
+                    ],
+                  ),
+                  onPressed: () async {
+                    dynamic userlogin = await Authentication.signIn(
+                        widget.nrpcontroller.text,
+                        widget.passwordcontroller.text);
+
+                    if (userlogin != null) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MainMenu()));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("ERROR CAN'T LOGIN")));
+                    }
+                  },
+                ),
+              ))
         ],
       ),
     );

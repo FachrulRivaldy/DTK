@@ -159,44 +159,6 @@ class FormPrestasi extends StatelessWidget {
               SizedBox(
                 height: 15,
               )
-              /*Row(
-                children: [
-                  Column(
-                    children: [
-                      UploadPhoto(),
-                      UploadPhoto(),
-                      UploadPhoto(),
-                      UploadPhoto(),
-                      UploadPhoto(),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Formnya(
-                        controller: namaanggota1,
-                        height: 35,
-                      ),
-                      Formnya(
-                        controller: namaanggota2,
-                        height: 35,
-                      ),
-                      Formnya(
-                        controller: namaanggota3,
-                        height: 35,
-                      ),
-                      Formnya(
-                        controller: namaanggota4,
-                        height: 35,
-                      ),
-                      Formnya(
-                        controller: namaanggota5,
-                        height: 35,
-                      )
-                    ],
-                  ),
-                ],
-              ),*/
             ],
           ),
         ),

@@ -21,10 +21,6 @@ class Formnya extends StatelessWidget {
 
   TextEditingController controller;
 
-  sendData(controller) {
-    this.controller = controller;
-  }
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -43,7 +39,6 @@ class Formnya extends StatelessWidget {
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
               borderRadius: BorderRadius.circular(50))),
-      onChanged: (String controller) {},
     ); //,
     //);
   }

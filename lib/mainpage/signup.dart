@@ -1,9 +1,14 @@
 import 'package:dtk_database_tekkom/mainpage/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
-import 'package:dtk_database_tekkom/template/buttontemplate.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     TextEditingController newnrpcontroller = TextEditingController(text: '');
@@ -40,7 +45,7 @@ class SignUp extends StatelessWidget {
   }
 }
 
-class StackSignUp extends StatelessWidget {
+class StackSignUp extends StatefulWidget {
   final TextEditingController newnrpcontroller;
   final TextEditingController newpasswordcontroller;
   final TextEditingController newnamacontroller;
@@ -54,6 +59,11 @@ class StackSignUp extends StatelessWidget {
       required this.newpasswordcontroller,
       required this.newangkatancontroller});
 
+  @override
+  _StackSignUpState createState() => _StackSignUpState();
+}
+
+class _StackSignUpState extends State<StackSignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -77,23 +87,23 @@ class StackSignUp extends StatelessWidget {
             ),
           ),
           Formnya(
-            controller: newnamacontroller,
+            controller: widget.newnamacontroller,
             hinttext: "Nama",
           ),
           Formnya(
-            controller: newnrpcontroller,
+            controller: widget.newnrpcontroller,
             hinttext: "NRP",
           ),
           Formnya(
-            controller: newemailcontroller,
+            controller: widget.newemailcontroller,
             hinttext: "Email",
           ),
           Formnya(
-            controller: newpasswordcontroller,
+            controller: widget.newpasswordcontroller,
             hinttext: "Password",
           ),
           Formnya(
-            controller: newangkatancontroller,
+            controller: widget.newangkatancontroller,
             hinttext: "Angkatan",
           ),
           Align(
@@ -112,14 +122,36 @@ class StackSignUp extends StatelessWidget {
             ),
           ),
           Align(
-            alignment: Alignment.bottomRight,
-            child: LongButton(
-              hinttext: "Sign Up",
-              iconArrow: "Right",
-              dest: LoginPage(),
-              width: 105,
-            ),
-          ),
+              alignment: Alignment.bottomRight,
+              child: Container(
+                alignment: Alignment.center,
+                width: 105,
+                height: 45,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18)))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("Sign Up"),
+                      Icon(Icons.arrow_right),
+                    ],
+                  ),
+                  onPressed: () async {
+                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: widget.newnrpcontroller.text,
+                        password: widget.newpasswordcontroller.text);
+
+                    setState(() {});
+
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              )),
           SizedBox(
             height: 50,
           )

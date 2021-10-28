@@ -1,7 +1,6 @@
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
 import 'package:dtk_database_tekkom/silabus/pagematkulsemester.dart';
-import 'package:dtk_database_tekkom/template/variabletemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:dtk_database_tekkom/mainpage/mainmenu.dart';
 

@@ -246,20 +246,6 @@ class _FormLombaState extends State<FormLomba> {
                               builder: (context) => DatabankLomba()),
                         );
                         createData();
-
-                        /*databanklomba.add({
-                          "Nama": namacontroller.text,
-                          "Penyelenggara": penyelenggaracontroller.text,
-                          "Skala": skalacontroller.text,
-                          "Tanggal": tanggalcontroller.text,
-                          "Harga": int.tryParse(biayacontroller.text) ?? 0,
-                        });*/
-
-                        /*namacontroller.text = '';
-                            penyelenggaracontroller.text = '';
-                            skalacontroller.text = '';
-                            tanggalcontroller.text = '';
-                            biayacontroller.text = '';*/
                       },
                     ),
                   )

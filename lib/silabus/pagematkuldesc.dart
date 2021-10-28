@@ -163,21 +163,3 @@ class Pustaka extends StatelessWidget {
         ));
   }
 }
-
-List pokok = [
-  'Sistem Bilangan',
-  'Operator',
-  'Algoritma Komputer',
-  'Pengulangan',
-  'Flowchart',
-  'Bahasa C',
-  'Array',
-  'Fungsi',
-  'Tipe Data',
-];
-
-List pustaka = [
-  'Discovering Computers Fundamentals 8th Edition',
-  'Introduction to Algorithms 3th Edition',
-  'The C Programming Language',
-];
