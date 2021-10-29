@@ -174,12 +174,19 @@ class _BankSoalState extends State<BankSoal> {
                                                 padding:
                                                     const EdgeInsets.all(8.0),
                                                 child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
                                                   children: <Widget>[
                                                     Text(
                                                       "Upload File",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: Colors.black),
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 15,
                                                     ),
                                                     Row(
                                                       children: <Widget>[
@@ -190,8 +197,11 @@ class _BankSoalState extends State<BankSoal> {
                                                             "Jenis",
                                                             style: TextStyle(
                                                                 color: Colors
-                                                                    .white,
-                                                                fontSize: 24),
+                                                                    .black,
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
                                                           ),
                                                         ),
                                                         Container(
@@ -239,8 +249,11 @@ class _BankSoalState extends State<BankSoal> {
                                                             "File",
                                                             style: TextStyle(
                                                                 color: Colors
-                                                                    .white,
-                                                                fontSize: 24),
+                                                                    .black,
+                                                                fontSize: 24,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
                                                           ),
                                                         ),
                                                         Container(
@@ -319,52 +332,6 @@ class _BankSoalState extends State<BankSoal> {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget gridFiles(PlatformFile file) {
-    final kb = file.size / 1024;
-    final mb = kb / 1024;
-    final filesize =
-        mb >= 1 ? '${mb.toStringAsFixed(2)} MB' : '${kb.toStringAsFixed(3)}';
-    final extension = file.extension ?? 'none';
-
-    return InkWell(
-      //onTap: () => widget.onOpenedFile(file),
-      child: Container(
-        padding: EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-                child: Container(
-              alignment: Alignment.center,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.yellow, borderRadius: BorderRadius.circular(9)),
-              child: Text(
-                '.$extension',
-                style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            )),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              file.name,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              overflow: TextOverflow.ellipsis,
-            ),
-            Text(
-              filesize,
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
         ),
       ),
     );

@@ -89,7 +89,7 @@ class _StackContainerState extends State<StackContainer> {
           ),
           Formnya(
             controller: widget.nrpcontroller,
-            hinttext: "NRP",
+            hinttext: "NRP@its.ac.id",
           ),
           SizedBox(
             height: 15,
@@ -97,6 +97,7 @@ class _StackContainerState extends State<StackContainer> {
           Formnya(
             controller: widget.passwordcontroller,
             hinttext: "Password",
+            isobscure: true,
           ),
           SizedBox(
             height: 15,

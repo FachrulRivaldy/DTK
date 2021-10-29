@@ -155,13 +155,16 @@ class CardWorkshop extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   height: height - 450,
                   width: width - 285,
                   color: Colors.blue,
+                ),
+                SizedBox(
+                  width: 15,
                 ),
                 Container(
                   child: Column(

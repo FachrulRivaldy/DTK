@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dtk_database_tekkom/infolomba/pageinfolomba.dart';
 import 'package:dtk_database_tekkom/infoworkshop/databankworkshop.dart';
+import 'package:dtk_database_tekkom/infoworkshop/pageinfoworkshop.dart';
 import 'package:dtk_database_tekkom/template/buttontemplate.dart';
 import 'package:dtk_database_tekkom/template/formtemplate.dart';
 import 'package:dtk_database_tekkom/template/headerfooter.dart';
@@ -217,7 +217,9 @@ class _FormWorkshopState extends State<FormWorkshop> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   LongButton(
-                      hinttext: "Back", iconArrow: "Left", dest: InfoLomba()),
+                      hinttext: "Back",
+                      iconArrow: "Left",
+                      dest: InfoWorkshop()),
                   Container(
                     alignment: Alignment.center,
                     width: 101,

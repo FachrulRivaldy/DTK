@@ -87,20 +87,21 @@ class PokokBahasan extends StatelessWidget {
                   mainAxisSpacing: 5,
                   childAspectRatio: 4,
                 ),
-                itemCount: 5,
+                itemCount: pokok.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.lightBlue,
-                    ),
-                    child: Text(
-                      "BAHASA PEMROGRAMAN",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  );
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Colors.lightBlue,
+                      ),
+                      child: ListTile(
+                          dense: true,
+                          title: Text(
+                            pokok[index],
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 16),
+                            maxLines: 2,
+                          )));
                 },
               ))
             ]),
@@ -139,12 +140,11 @@ class Pustaka extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView.builder(
-                      itemCount: 2,
+                      itemCount: pustaka.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.only(top: 5),
+                          padding: const EdgeInsets.all(3.0),
                           child: Container(
-                            padding: EdgeInsets.all(8),
                             width: 250,
                             height: 35,
                             decoration: BoxDecoration(
@@ -152,7 +152,13 @@ class Pustaka extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(15)),
                               color: Colors.lightBlue,
                             ),
-                            child: Text("JUDUL BUKU DAN PENGARANG"),
+                            child: ListTile(
+                              dense: true,
+                              title: Text(
+                                pustaka[index],
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                           ),
                         );
                       }),
@@ -163,3 +169,21 @@ class Pustaka extends StatelessWidget {
         ));
   }
 }
+
+List pokok = [
+  'Sistem Bilangan',
+  'Operator',
+  'Algoritma Komputer',
+  'Pengulangan',
+  'Flowchart',
+  'Bahasa C',
+  'Array',
+  'Fungsi',
+  'Tipe Data',
+];
+
+List pustaka = [
+  'Discovering Computers Fundamentals 8th Edition',
+  'Introduction to Algorithms 3th Edition',
+  'The C Programming Language',
+];

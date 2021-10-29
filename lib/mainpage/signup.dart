@@ -15,7 +15,7 @@ class _SignUpState extends State<SignUp> {
     TextEditingController newpasswordcontroller =
         TextEditingController(text: '');
     TextEditingController newnamacontroller = TextEditingController(text: '');
-    TextEditingController newemailcontroller = TextEditingController(text: '');
+
     TextEditingController newangkatancontroller =
         TextEditingController(text: '');
 
@@ -34,7 +34,6 @@ class _SignUpState extends State<SignUp> {
                   child: StackSignUp(
                       newnamacontroller: newnamacontroller,
                       newnrpcontroller: newnrpcontroller,
-                      newemailcontroller: newemailcontroller,
                       newpasswordcontroller: newpasswordcontroller,
                       newangkatancontroller: newangkatancontroller)),
             ],
@@ -49,13 +48,12 @@ class StackSignUp extends StatefulWidget {
   final TextEditingController newnrpcontroller;
   final TextEditingController newpasswordcontroller;
   final TextEditingController newnamacontroller;
-  final TextEditingController newemailcontroller;
+
   final TextEditingController newangkatancontroller;
 
   StackSignUp(
       {required this.newnamacontroller,
       required this.newnrpcontroller,
-      required this.newemailcontroller,
       required this.newpasswordcontroller,
       required this.newangkatancontroller});
 
@@ -92,15 +90,12 @@ class _StackSignUpState extends State<StackSignUp> {
           ),
           Formnya(
             controller: widget.newnrpcontroller,
-            hinttext: "NRP",
-          ),
-          Formnya(
-            controller: widget.newemailcontroller,
-            hinttext: "Email",
+            hinttext: "Nrp@its.ac.id",
           ),
           Formnya(
             controller: widget.newpasswordcontroller,
             hinttext: "Password",
+            isobscure: true,
           ),
           Formnya(
             controller: widget.newangkatancontroller,

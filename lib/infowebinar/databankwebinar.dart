@@ -57,7 +57,6 @@ class DatabankWebinar extends StatelessWidget {
                         DocumentSnapshot documentSnapshot =
                             snapshot.data!.docs[index];
                         return CardWebinar(
-                            width: 320,
                             posterwebinar: "",
                             namawebinar: documentSnapshot["Nama"],
                             penyelenggarawebinar:
